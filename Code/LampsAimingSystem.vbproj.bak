@@ -1,0 +1,1409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8BDA8DA4-3C32-408E-9566-05506F30889D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>LAS.My.MyApplication</StartupObject>
+    <RootNamespace>LAS</RootNamespace>
+    <AssemblyName>LAS</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>xApp\</OutputPath>
+    <DocumentationFile>LAS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>xApp\</OutputPath>
+    <DocumentationFile>LAS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>xApp\</OutputPath>
+    <DocumentationFile>LAS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>xApp\</OutputPath>
+    <DocumentationFile>LAS.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Las.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActivityMonitor">
+      <HintPath>..\lib\ActivityMonitor.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge, Version=2.2.4.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Controls, Version=2.2.4.0, Culture=neutral, PublicKeyToken=a8ac264d1dc6b9d9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.4.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.4.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\AForge.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="AforgeImageProcessingLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\AForge\AforgeImageProcessingLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ALBusComDriver">
+      <HintPath>lib\ALBusComDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="ALRestbusVCF, Version=0.6.1.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RestBus\ALRestbusVCF.dll</HintPath>
+    </Reference>
+    <Reference Include="ALRestbusVCF_Wrapper, Version=1.0.5218.20219, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RestBus\ALRestbusVCF_Wrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="gTrackBar">
+      <HintPath>..\lib\gTrackBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.AUTOMATIONAPILib">
+      <HintPath>..\lib\Interop.AUTOMATIONAPILib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="LasCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LasCore.dll</HintPath>
+    </Reference>
+    <Reference Include="libnodave.net, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\libnodave.net.dll</HintPath>
+    </Reference>
+    <Reference Include="Modbus, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Modbus.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.Common, Version=9.1.40.414, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\NationalInstruments.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.Common.Native, Version=9.1.40.414, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\NationalInstruments.Common.Native.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.DAQmx, Version=9.5.40.112, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\NationalInstruments.DAQmx.dll</HintPath>
+    </Reference>
+    <Reference Include="PylonC.NET, Version=4.1.0.0, Culture=neutral, PublicKeyToken=a77e8471c5919d5a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Basler\PylonC.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="PylonC.NETSupportLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Basler\PylonC.NETSupportLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="snap7.net">
+      <HintPath>..\Libraries\Snap7\snap7.net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="uEyeDotNetApiLayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\uEye\x86\uEyeDotNetApiLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="uEyeDotNetUserLayer, Version=1.1.4.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\uEye\x86\uEyeDotNetUserLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="UserInactivityMonitoring">
+      <HintPath>..\lib\UserInactivityMonitoring.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppConfig\AppConfig.vb" />
+    <Compile Include="AppConfig\frmAppConfigEdit.Designer.vb">
+      <DependentUpon>frmAppConfigEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AppConfig\frmAppConfigEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Barcode\eBcr.vb" />
+    <Compile Include="Barcode\EthernetCommunication.vb" />
+    <Compile Include="Barcode\frmViewBcr.Designer.vb">
+      <DependentUpon>frmViewBcr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Barcode\frmViewBcr.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Barcode\SerialPortCommunication.vb" />
+    <Compile Include="Barcode\ucBcrIcon.Designer.vb">
+      <DependentUpon>ucBcrIcon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Barcode\ucBcrIcon.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Calibration\CameraAlignWizard.vb" />
+    <Compile Include="Calibration\frmEletricalCalibration.designer.vb">
+      <DependentUpon>frmEletricalCalibration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Calibration\frmEletricalCalibration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calibration\frmWizAlignLastStep.Designer.vb">
+      <DependentUpon>frmWizAlignLastStep.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Calibration\frmWizAlignLastStep.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calibration\frmWizAlignStep01.Designer.vb">
+      <DependentUpon>frmWizAlignStep01.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Calibration\frmWizAlignStep01.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calibration\ucViewCameraAlignParams.Designer.vb">
+      <DependentUpon>ucViewCameraAlignParams.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Calibration\ucViewCameraAlignParams.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cameras\frmCameraConfig.Designer.vb">
+      <DependentUpon>frmCameraConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Cameras\frmCameraConfig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cameras\frmCameraSelection.Designer.vb">
+      <DependentUpon>frmCameraSelection.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Cameras\frmCameraSelection.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Capability\Capability.vb" />
+    <Compile Include="DataStorage\DataBackup.vb" />
+    <Compile Include="DataStorage\DataStorage.vb" />
+    <Compile Include="ECUsInterfaces\EcuComm.vb" />
+    <Compile Include="ECUsInterfaces\EcuLed61.vb" />
+    <Compile Include="ECUsInterfaces\EcuW166.vb" />
+    <Compile Include="ECUsInterfaces\eDTS8.vb" />
+    <Compile Include="ECUsInterfaces\eVCF.vb" />
+    <Compile Include="ECUsInterfaces\frmViewEcuComm.Designer.vb">
+      <DependentUpon>frmViewEcuComm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ECUsInterfaces\frmViewEcuComm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ECUsInterfaces\Iecu.vb" />
+    <Compile Include="ECUsInterfaces\ucHsxIcon.Designer.vb">
+      <DependentUpon>ucHsxIcon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ECUsInterfaces\ucHsxIcon.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ECUsInterfaces\ucLed61ViewAnalogValues.Designer.vb">
+      <DependentUpon>ucLed61ViewAnalogValues.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ECUsInterfaces\ucLed61ViewAnalogValues.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ECUsInterfaces\ucMotorStatusLed61.Designer.vb">
+      <DependentUpon>ucMotorStatusLed61.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ECUsInterfaces\ucMotorStatusLed61.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ECUsInterfaces\ucViewAnalogLed.Designer.vb">
+      <DependentUpon>ucViewAnalogLed.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ECUsInterfaces\ucViewAnalogLed.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Host\ePc.vb" />
+    <Compile Include="Host\PcDataCodDec.vb" />
+    <Compile Include="Host\TraMaInterface.vb" />
+    <Compile Include="LIN-CAN\AmisLisa.vb" />
+    <Compile Include="LIN-CAN\niCAN.vb" />
+    <Compile Include="Main\frmAbout.Designer.vb">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmAboutCizeta.designer.vb">
+      <DependentUpon>frmAboutCizeta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmAboutCizeta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmBulbsOnOff.Designer.vb">
+      <DependentUpon>frmBulbsOnOff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmBulbsOnOff.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmViewLabelText.Designer.vb">
+      <DependentUpon>frmViewLabelText.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmViewLabelText.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Globals.vb" />
+    <Compile Include="Main\Splash.Designer.vb">
+      <DependentUpon>Splash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Splash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\ucPanel.Designer.vb">
+      <DependentUpon>ucPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ucPanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\ucViewEcuTempResults.Designer.vb">
+      <DependentUpon>ucViewEcuTempResults.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ucViewEcuTempResults.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\ucViewEcuVersionResults.Designer.vb">
+      <DependentUpon>ucViewEcuVersionResults.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ucViewEcuVersionResults.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\Utils.vb" />
+    <Compile Include="Master\frmDisplayMsg.Designer.vb">
+      <DependentUpon>frmDisplayMsg.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmDisplayMsg.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmMasterSchedulingEdit.Designer.vb">
+      <DependentUpon>frmMasterSchedulingEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmMasterSchedulingEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\MasterScheduling.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Plc\ePlc.vb" />
+    <Compile Include="Plc\frmViewPlcData.Designer.vb">
+      <DependentUpon>frmViewPlcData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Plc\frmViewPlcData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plc\PlcDataCoDec.vb" />
+    <Compile Include="Plc\PlcDataConverter.vb" />
+    <Compile Include="Plc\SiemensAS511.vb" />
+    <Compile Include="Plc\SiemensLibNodave.vb" />
+    <Compile Include="Plc\SiemensModbusTCP.vb" />
+    <Compile Include="Plc\SiemensSnap7.vb" />
+    <Compile Include="Plc\ucPlcIcon.Designer.vb">
+      <DependentUpon>ucPlcIcon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Plc\ucPlcIcon.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Printer\ePrn.vb" />
+    <Compile Include="Printer\frmEditSerialNo.Designer.vb">
+      <DependentUpon>frmEditSerialNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Printer\frmEditSerialNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Printer\frmPrintManagement.Designer.vb">
+      <DependentUpon>frmPrintManagement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Printer\frmPrintManagement.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Printer\frmViewPrinter.Designer.vb">
+      <DependentUpon>frmViewPrinter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Printer\frmViewPrinter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Printer\Printer.vb" />
+    <Compile Include="Printer\ucIconPrn.Designer.vb">
+      <DependentUpon>ucIconPrn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Printer\ucIconPrn.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recipes\AimingParam.Designer.vb">
+      <DependentUpon>AimingParam.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\AimingParam.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmAdvancedMaxGrad.Designer.vb">
+      <DependentUpon>frmAdvancedMaxGrad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmAdvancedMaxGrad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeECUsEdit.Designer.vb">
+      <DependentUpon>frmRecipeECUsEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeECUsEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeTestSequence.Designer.vb">
+      <DependentUpon>frmRecipeTestSequence.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeTestSequence.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\ucAfsMotorParams.Designer.vb">
+      <DependentUpon>ucAfsMotorParams.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\ucAfsMotorParams.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recipes\ucGeomPositionParams.Designer.vb">
+      <DependentUpon>ucGeomPositionParams.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\ucGeomPositionParams.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recipes\ucLed61AnalogParams.Designer.vb">
+      <DependentUpon>ucLed61AnalogParams.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\ucLed61AnalogParams.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recipes\ucRecipeElectricParams.Designer.vb">
+      <DependentUpon>ucRecipeElectricParams.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\ucRecipeElectricParams.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\ucWizardElectricParams.Designer.vb">
+      <DependentUpon>ucWizardElectricParams.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\ucWizardElectricParams.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmAdvancedLED.Designer.vb">
+      <DependentUpon>frmAdvancedLED.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmAdvancedLED.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmAdvancedMaxLumPoint.Designer.vb">
+      <DependentUpon>frmAdvancedMaxLumPoint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmAdvancedMaxLumPoint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmAdvancedPointHC.Designer.vb">
+      <DependentUpon>frmAdvancedPointHC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmAdvancedPointHC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmAdvancedShapeLowBeam.Designer.vb">
+      <DependentUpon>frmAdvancedShapeLowBeam.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmAdvancedShapeLowBeam.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmAdvancedSharpness.Designer.vb">
+      <DependentUpon>frmAdvancedSharpness.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmAdvancedSharpness.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmChooseControl.Designer.vb">
+      <DependentUpon>frmChooseControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmChooseControl.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmChooseOperation.Designer.vb">
+      <DependentUpon>frmChooseOperation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmChooseOperation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmChooseToStore.Designer.vb">
+      <DependentUpon>frmChooseToStore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmChooseToStore.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeAimingEdit.Designer.vb">
+      <DependentUpon>frmRecipeAimingEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeAimingEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeEdit.designer.vb">
+      <DependentUpon>frmRecipeEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeEletEdit.designer.vb">
+      <DependentUpon>frmRecipeEletEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeEletEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeGeomEdit.Designer.vb">
+      <DependentUpon>frmRecipeGeomEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeGeomEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeLabelsEdit.Designer.vb">
+      <DependentUpon>frmRecipeLabelsEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeLabelsEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeLEDsEdit.Designer.vb">
+      <DependentUpon>frmRecipeLEDsEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeLEDsEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeList.designer.vb">
+      <DependentUpon>frmRecipeList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeMotorsEdit.Designer.vb">
+      <DependentUpon>frmRecipeMotorsEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmRecipeMotorsEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmRecipePhotomEdit.Designer.vb">
+      <DependentUpon>frmRecipePhotomEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmRecipePhotomEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmRecipePointEdit.Designer.vb">
+      <DependentUpon>frmRecipePointEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmRecipePointEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmSelectTargetRecipe.designer.vb">
+      <DependentUpon>frmSelectTargetRecipe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmSelectTargetRecipe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\LEDsParam.Designer.vb">
+      <DependentUpon>LEDsParam.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\LEDsParam.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recipes\LEDsParamTitles.Designer.vb">
+      <DependentUpon>LEDsParamTitles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\LEDsParamTitles.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recipes\OutputForLamp.designer.vb">
+      <DependentUpon>OutputForLamp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\OutputForLamp.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recipes\Recipe.vb" />
+    <Compile Include="Recipes\RecipeAiming.vb" />
+    <Compile Include="Recipes\RecipeECUs.vb" />
+    <Compile Include="Recipes\RecipeElet.vb" />
+    <Compile Include="Recipes\RecipeGeom.vb" />
+    <Compile Include="Recipes\RecipeLabels.vb" />
+    <Compile Include="Recipes\RecipeLED.vb" />
+    <Compile Include="Recipes\RecipeMotors.vb" />
+    <Compile Include="Recipes\RecipePhotom.vb" />
+    <Compile Include="Recipes\SetFrame.designer.vb">
+      <DependentUpon>SetFrame.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\SetFrame.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recipes\ucElectAbsortionParams.Designer.vb">
+      <DependentUpon>ucElectAbsortionParams.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\ucElectAbsortionParams.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recipes\ucShapeParams.Designer.vb">
+      <DependentUpon>ucShapeParams.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\ucShapeParams.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recipes\ucLwrMotorParams.Designer.vb">
+      <DependentUpon>ucLwrMotorParams.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\ucLwrMotorParams.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizStep07.designer.vb">
+      <DependentUpon>frmWizStep07.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizStep07.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\frmLwrDeliveryPos.Designer.vb">
+      <DependentUpon>frmLwrDeliveryPos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\frmLwrDeliveryPos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizLedPos.Designer.vb">
+      <DependentUpon>frmWizLedPos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizLedPos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizStep05.Designer.vb">
+      <DependentUpon>frmWizStep05.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizStep05.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizStep06.Designer.vb">
+      <DependentUpon>frmWizStep06.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizStep06.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\ucWizAfsMotorParams.Designer.vb">
+      <DependentUpon>ucWizAfsMotorParams.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\ucWizAfsMotorParams.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\ucWizCutoffData.Designer.vb">
+      <DependentUpon>ucWizCutoffData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\ucWizCutoffData.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\ucWizHotSpotData.Designer.vb">
+      <DependentUpon>ucWizHotSpotData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\ucWizHotSpotData.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\ucWizLwrMotorParams.Designer.vb">
+      <DependentUpon>ucWizLwrMotorParams.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\ucWizLwrMotorParams.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\ucWizPositionAnalysis.Designer.vb">
+      <DependentUpon>ucWizPositionAnalysis.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\ucWizPositionAnalysis.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ScrewDrivers\frmCheckScrewDrivers.Designer.vb">
+      <DependentUpon>frmCheckScrewDrivers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ScrewDrivers\frmCheckScrewDrivers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScrewDrivers\ucCheckScrewdriver.Designer.vb">
+      <DependentUpon>ucCheckScrewdriver.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ScrewDrivers\ucCheckScrewdriver.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shifts\frmShiftConfig.Designer.vb">
+      <DependentUpon>frmShiftConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Shifts\frmShiftConfig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shifts\frmShiftsEdit.Designer.vb">
+      <DependentUpon>frmShiftsEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Shifts\frmShiftsEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shifts\frmTeamSelect.Designer.vb">
+      <DependentUpon>frmTeamSelect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Shifts\frmTeamSelect.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shifts\Shifts.vb" />
+    <Compile Include="Test\AimingTest.vb" />
+    <Compile Include="Test\ECUsTest.vb" />
+    <Compile Include="Test\DrawsOnLive.vb" />
+    <Compile Include="Test\ElectTest.vb" />
+    <Compile Include="Test\GeomTest.vb" />
+    <Compile Include="Test\GraphicResults.vb" />
+    <Compile Include="Test\LEDsTest.vb" />
+    <Compile Include="Test\LightFunctions.vb" />
+    <Compile Include="Test\MotorsTest.vb" />
+    <Compile Include="Test\PhotomTest.vb" />
+    <Compile Include="Test\Results.vb" />
+    <Compile Include="Test\Test.vb" />
+    <Compile Include="Test\TestSequence.vb" />
+    <Compile Include="Test\th.vb" />
+    <Compile Include="Test\ViewFrameResults.designer.vb">
+      <DependentUpon>ViewFrameResults.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Test\ViewFrameResults.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmUserEdit.Designer.vb">
+      <DependentUpon>frmUserEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmUserEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmUsersList.Designer.vb">
+      <DependentUpon>frmUsersList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmUsersList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\Users.vb" />
+    <Compile Include="RecipeWizard\frmWizLastStep.designer.vb">
+      <DependentUpon>frmWizLastStep.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizLastStep.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizManualPosHV.designer.vb">
+      <DependentUpon>frmWizManualPosHV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizManualPosHV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizStep01.designer.vb">
+      <DependentUpon>frmWizStep01.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizStep01.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizStep02.designer.vb">
+      <DependentUpon>frmWizStep02.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizStep02.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizStep03.designer.vb">
+      <DependentUpon>frmWizStep03.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizStep03.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizStep04.designer.vb">
+      <DependentUpon>frmWizStep04.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizStep04.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizTest.Designer.vb">
+      <DependentUpon>frmWizTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeWizard\frmWizTest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeWizard\MakeRecipeWizard.vb" />
+    <Compile Include="Workers\frmWorkerEdit.Designer.vb">
+      <DependentUpon>frmWorkerEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Workers\frmWorkerEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Workers\frmWorkerLogin.Designer.vb">
+      <DependentUpon>frmWorkerLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Workers\frmWorkerLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Workers\frmWorkersList.Designer.vb">
+      <DependentUpon>frmWorkersList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Workers\frmWorkersList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Workers\Workers.vb" />
+    <Compile Include="Work\frmWorks.Designer.vb">
+      <DependentUpon>frmWorks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Work\frmWorks.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work\Model.vb" />
+    <Compile Include="Work\Production.vb" />
+    <Compile Include="Work\Work.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppConfig\frmAppConfigEdit.resx">
+      <DependentUpon>frmAppConfigEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Barcode\frmViewBcr.resx">
+      <DependentUpon>frmViewBcr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Barcode\ucBcrIcon.resx">
+      <DependentUpon>ucBcrIcon.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calibration\frmEletricalCalibration.resx">
+      <DependentUpon>frmEletricalCalibration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calibration\frmWizAlignLastStep.resx">
+      <DependentUpon>frmWizAlignLastStep.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calibration\frmWizAlignStep01.resx">
+      <DependentUpon>frmWizAlignStep01.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calibration\ucViewCameraAlignParams.resx">
+      <DependentUpon>ucViewCameraAlignParams.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cameras\frmCameraConfig.resx">
+      <DependentUpon>frmCameraConfig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cameras\frmCameraSelection.resx">
+      <DependentUpon>frmCameraSelection.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ECUsInterfaces\frmViewEcuComm.resx">
+      <DependentUpon>frmViewEcuComm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ECUsInterfaces\ucHsxIcon.resx">
+      <DependentUpon>ucHsxIcon.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ECUsInterfaces\ucLed61ViewAnalogValues.resx">
+      <DependentUpon>ucLed61ViewAnalogValues.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ECUsInterfaces\ucMotorStatusLed61.resx">
+      <DependentUpon>ucMotorStatusLed61.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ECUsInterfaces\ucViewAnalogLed.resx">
+      <DependentUpon>ucViewAnalogLed.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmAbout.resx">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmAboutCizeta.resx">
+      <DependentUpon>frmAboutCizeta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmBulbsOnOff.resx">
+      <DependentUpon>frmBulbsOnOff.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmViewLabelText.resx">
+      <DependentUpon>frmViewLabelText.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Splash.resx">
+      <DependentUpon>Splash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ucPanel.resx">
+      <DependentUpon>ucPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ucViewEcuTempResults.resx">
+      <DependentUpon>ucViewEcuTempResults.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ucViewEcuVersionResults.resx">
+      <DependentUpon>ucViewEcuVersionResults.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmDisplayMsg.resx">
+      <DependentUpon>frmDisplayMsg.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmMasterSchedulingEdit.resx">
+      <DependentUpon>frmMasterSchedulingEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plc\frmViewPlcData.resx">
+      <DependentUpon>frmViewPlcData.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plc\ucPlcIcon.resx">
+      <DependentUpon>ucPlcIcon.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printer\frmEditSerialNo.resx">
+      <DependentUpon>frmEditSerialNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printer\frmPrintManagement.resx">
+      <DependentUpon>frmPrintManagement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printer\frmViewPrinter.resx">
+      <DependentUpon>frmViewPrinter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printer\ucIconPrn.resx">
+      <DependentUpon>ucIconPrn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\AimingParam.resx">
+      <DependentUpon>AimingParam.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmAdvancedMaxGrad.resx">
+      <DependentUpon>frmAdvancedMaxGrad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmRecipeECUsEdit.resx">
+      <DependentUpon>frmRecipeECUsEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmRecipeTestSequence.resx">
+      <DependentUpon>frmRecipeTestSequence.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\ucAfsMotorParams.resx">
+      <DependentUpon>ucAfsMotorParams.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\ucGeomPositionParams.resx">
+      <DependentUpon>ucGeomPositionParams.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\ucLed61AnalogParams.resx">
+      <DependentUpon>ucLed61AnalogParams.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\ucRecipeElectricParams.resx">
+      <DependentUpon>ucRecipeElectricParams.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\ucWizardElectricParams.resx">
+      <DependentUpon>ucWizardElectricParams.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmAdvancedLED.resx">
+      <DependentUpon>frmAdvancedLED.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmAdvancedMaxLumPoint.resx">
+      <DependentUpon>frmAdvancedMaxLumPoint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmAdvancedPointHC.resx">
+      <DependentUpon>frmAdvancedPointHC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmAdvancedShapeLowBeam.resx">
+      <DependentUpon>frmAdvancedShapeLowBeam.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmAdvancedSharpness.resx">
+      <DependentUpon>frmAdvancedSharpness.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmChooseControl.resx">
+      <DependentUpon>frmChooseControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmChooseOperation.resx">
+      <DependentUpon>frmChooseOperation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmChooseToStore.resx">
+      <DependentUpon>frmChooseToStore.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmRecipeAimingEdit.resx">
+      <DependentUpon>frmRecipeAimingEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmRecipeEdit.resx">
+      <DependentUpon>frmRecipeEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmRecipeEletEdit.resx">
+      <DependentUpon>frmRecipeEletEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmRecipeGeomEdit.resx">
+      <DependentUpon>frmRecipeGeomEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmRecipeLabelsEdit.resx">
+      <DependentUpon>frmRecipeLabelsEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmRecipeLEDsEdit.resx">
+      <DependentUpon>frmRecipeLEDsEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmRecipeList.resx">
+      <DependentUpon>frmRecipeList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmRecipeMotorsEdit.resx">
+      <DependentUpon>frmRecipeMotorsEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmRecipePhotomEdit.resx">
+      <DependentUpon>frmRecipePhotomEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmRecipePointEdit.resx">
+      <DependentUpon>frmRecipePointEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmSelectTargetRecipe.resx">
+      <DependentUpon>frmSelectTargetRecipe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\LEDsParam.resx">
+      <DependentUpon>LEDsParam.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\LEDsParamTitles.resx">
+      <DependentUpon>LEDsParamTitles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\OutputForLamp.resx">
+      <DependentUpon>OutputForLamp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\SetFrame.resx">
+      <DependentUpon>SetFrame.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\ucElectAbsortionParams.resx">
+      <DependentUpon>ucElectAbsortionParams.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\ucShapeParams.resx">
+      <DependentUpon>ucShapeParams.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\ucLwrMotorParams.resx">
+      <DependentUpon>ucLwrMotorParams.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\frmWizStep07.resx">
+      <DependentUpon>frmWizStep07.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\frmLwrDeliveryPos.resx">
+      <DependentUpon>frmLwrDeliveryPos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\frmWizLedPos.resx">
+      <DependentUpon>frmWizLedPos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\frmWizStep05.resx">
+      <DependentUpon>frmWizStep05.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\frmWizStep06.resx">
+      <DependentUpon>frmWizStep06.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\ucWizAfsMotorParams.resx">
+      <DependentUpon>ucWizAfsMotorParams.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\ucWizCutoffData.resx">
+      <DependentUpon>ucWizCutoffData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\ucWizHotSpotData.resx">
+      <DependentUpon>ucWizHotSpotData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\ucWizLwrMotorParams.resx">
+      <DependentUpon>ucWizLwrMotorParams.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\ucWizPositionAnalysis.resx">
+      <DependentUpon>ucWizPositionAnalysis.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScrewDrivers\frmCheckScrewDrivers.resx">
+      <DependentUpon>frmCheckScrewDrivers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScrewDrivers\ucCheckScrewdriver.resx">
+      <DependentUpon>ucCheckScrewdriver.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shifts\frmShiftConfig.resx">
+      <DependentUpon>frmShiftConfig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shifts\frmShiftsEdit.resx">
+      <DependentUpon>frmShiftsEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shifts\frmTeamSelect.resx">
+      <DependentUpon>frmTeamSelect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\ViewFrameResults.resx">
+      <DependentUpon>ViewFrameResults.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmUserEdit.resx">
+      <DependentUpon>frmUserEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmUsersList.resx">
+      <DependentUpon>frmUsersList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\frmWizLastStep.resx">
+      <DependentUpon>frmWizLastStep.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\frmWizManualPosHV.resx">
+      <DependentUpon>frmWizManualPosHV.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\frmWizStep01.resx">
+      <DependentUpon>frmWizStep01.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\frmWizStep02.resx">
+      <DependentUpon>frmWizStep02.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\frmWizStep03.resx">
+      <DependentUpon>frmWizStep03.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\frmWizStep04.resx">
+      <DependentUpon>frmWizStep04.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeWizard\frmWizTest.resx">
+      <DependentUpon>frmWizTest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workers\frmWorkerEdit.resx">
+      <DependentUpon>frmWorkerEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workers\frmWorkerLogin.resx">
+      <DependentUpon>frmWorkerLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workers\frmWorkersList.resx">
+      <DependentUpon>frmWorkersList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work\frmWorks.resx">
+      <DependentUpon>frmWorks.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Las.ico" />
+    <Content Include="lib\Komfort.dll" />
+    <None Include="My Project\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\ActivityMonitor.dll" />
+    <Content Include="lib\AForge.Controls.dll" />
+    <Content Include="lib\AForge.dll" />
+    <Content Include="lib\AForge.Imaging.dll" />
+    <Content Include="lib\AForge.Math.dll" />
+    <Content Include="lib\ALRestbusVCF.dll" />
+    <Content Include="lib\ALRestbusVCF_Core.dll" />
+    <Content Include="lib\ALRestbusVCF_Wrapper.dll" />
+    <Content Include="lib\gTrackBar.dll" />
+    <Content Include="lib\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="lib\Interop.AUTOMATIONAPILib.dll" />
+    <Content Include="lib\Interop.OPCAutomation.dll" />
+    <Content Include="lib\libnodave.dll" />
+    <Content Include="lib\libnodave.net.dll" />
+    <Content Include="lib\libusb-1.0.dll" />
+    <Content Include="lib\Modbus.dll" />
+    <Content Include="lib\NationalInstruments.Common.dll" />
+    <Content Include="lib\NationalInstruments.Common.Native.dll" />
+    <Content Include="lib\NationalInstruments.DAQmx.dll" />
+    <Content Include="lib\NationalInstruments.NiLmClientDLL.dll" />
+    <Content Include="lib\Nican.dll" />
+    <Content Include="lib\uEyeDotNetApiLayer.dll" />
+    <Content Include="lib\uEyeDotNetUserLayer.dll" />
+    <Content Include="lib\UserInactivityMonitoring.dll" />
+    <Content Include="lib\W95_s7.dll" />
+    <Content Include="Recipes\Texts.xml" />
+    <Content Include="Shifts\Texts.xml" />
+    <Content Include="Users\Texts.xml" />
+    <Content Include="Work\Texts.xml" />
+    <Content Include="xApp\Include\myTexts.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xApp\Pictures\3D-Arrow-Down-64.png" />
+    <Content Include="xApp\Pictures\3D-Arrow-Left-64.png" />
+    <Content Include="xApp\Pictures\3D-Arrow-Right-64.png" />
+    <Content Include="xApp\Pictures\3D-Arrow-Up-64.png" />
+    <Content Include="xApp\Pictures\Abb.ico" />
+    <Content Include="xApp\Pictures\Allarmi.ico" />
+    <Content Include="xApp\Pictures\Anab.ico" />
+    <Content Include="xApp\Pictures\ArrowDownGreen.png" />
+    <Content Include="xApp\Pictures\ArrowDownGreen1.png" />
+    <Content Include="xApp\Pictures\ArrowDownOrange.png" />
+    <Content Include="xApp\Pictures\ArrowDownOrange1.png" />
+    <Content Include="xApp\Pictures\ArrowLeftGreen.png" />
+    <Content Include="xApp\Pictures\ArrowLeftGreen1.png" />
+    <Content Include="xApp\Pictures\ArrowLeftOrange.png" />
+    <Content Include="xApp\Pictures\ArrowLeftOrange1.png" />
+    <Content Include="xApp\Pictures\ArrowRightGreen.png" />
+    <Content Include="xApp\Pictures\ArrowRightGreen1.png" />
+    <Content Include="xApp\Pictures\ArrowRightOrange.png" />
+    <Content Include="xApp\Pictures\ArrowUpGreen.png" />
+    <Content Include="xApp\Pictures\ArrowUpOrange.png" />
+    <Content Include="xApp\Pictures\Bell.ico" />
+    <Content Include="xApp\Pictures\BELL03.ICO" />
+    <Content Include="xApp\Pictures\BELL04.ICO" />
+    <Content Include="xApp\Pictures\Camera.ico" />
+    <None Include="xApp\Pictures\CameraLive1.ico" />
+    <None Include="xApp\Pictures\CameraLive2.ico" />
+    <None Include="xApp\Pictures\Checked.ico" />
+    <Content Include="xApp\Pictures\Ciclo.ico" />
+    <Content Include="xApp\Pictures\CicloMaster.ico" />
+    <None Include="xApp\Pictures\Close.ico" />
+    <Content Include="xApp\Pictures\ComToPlcNOK.ico" />
+    <Content Include="xApp\Pictures\ComToPlcOffline.ico" />
+    <Content Include="xApp\Pictures\ComToPlcOK.ico" />
+    <Content Include="xApp\Pictures\ConfigLabelPrinter.ICO" />
+    <Content Include="xApp\Pictures\ConfigSistema.ico" />
+    <Content Include="xApp\Pictures\ConfigTurni.ICO" />
+    <Content Include="xApp\Pictures\DataOra.ico" />
+    <Content Include="xApp\Pictures\Debug.ico" />
+    <Content Include="xApp\Pictures\Diaframma.ico" />
+    <Content Include="xApp\Pictures\Direz.ico" />
+    <Content Include="xApp\Pictures\DirezDx.ico" />
+    <Content Include="xApp\Pictures\DirezSX.ico" />
+    <Content Include="xApp\Pictures\ECU.ico" />
+    <None Include="xApp\Pictures\EndProgram.ico" />
+    <None Include="xApp\Pictures\Electrical.ico" />
+    <Content Include="xApp\Pictures\FormaAnab.bmp" />
+    <Content Include="xApp\Pictures\FormaECEnero.bmp" />
+    <None Include="xApp\Pictures\FormaJAPnero.bmp" />
+    <Content Include="xApp\Pictures\FormaSAEnero.bmp" />
+    <Content Include="xApp\Pictures\FormaUKnero.bmp" />
+    <Content Include="xApp\Pictures\Fotometrico.ICO" />
+    <Content Include="xApp\Pictures\green-off.ico" />
+    <Content Include="xApp\Pictures\green-off.jpg" />
+    <Content Include="xApp\Pictures\green-on.ico" />
+    <Content Include="xApp\Pictures\green-on.jpg" />
+    <Content Include="xApp\Pictures\HV.bmp" />
+    <Content Include="xApp\Pictures\Isolux.ico" />
+    <Content Include="xApp\Pictures\Label.ico" />
+    <None Include="xApp\Pictures\LabelNoLogo.ico" />
+    <Content Include="xApp\Pictures\LabelPrinter.ICO" />
+    <None Include="xApp\Pictures\LabelPrinterComNOK.ICO" />
+    <Content Include="xApp\Pictures\LabelPrinterKO.ICO" />
+    <Content Include="xApp\Pictures\LabelPrinterNOK.ICO" />
+    <None Include="xApp\Pictures\LabelWithLogo.ico" />
+    <Content Include="xApp\Pictures\LavoroFermo.ico" />
+    <Content Include="xApp\Pictures\LavoroInCorso.ico" />
+    <Content Include="xApp\Pictures\LavoroInCorso1.ico" />
+    <Content Include="xApp\Pictures\lightning.png" />
+    <Content Include="xApp\Pictures\LLMotor.ico" />
+    <Content Include="xApp\Pictures\login.ico" />
+    <Content Include="xApp\Pictures\LogoInvensys.bmp" />
+    <Content Include="xApp\Pictures\LogoTelerobot.bmp" />
+    <Content Include="xApp\Pictures\logout.ico" />
+    <Content Include="xApp\Pictures\LowBeamSharpness.bmp" />
+    <Content Include="xApp\Pictures\MakeRecipe.ico" />
+    <Content Include="xApp\Pictures\Master.ico" />
+    <Content Include="xApp\Pictures\MasterConfig.ico" />
+    <Content Include="xApp\Pictures\MathMeno.ico" />
+    <Content Include="xApp\Pictures\MathPiu.ico" />
+    <Content Include="xApp\Pictures\MaxAbb.ico" />
+    <Content Include="xApp\Pictures\MaxAbbNero.bmp" />
+    <Content Include="xApp\Pictures\MaxAnab.ico" />
+    <Content Include="xApp\Pictures\MaxAnabNero.bmp" />
+    <Content Include="xApp\Pictures\MaxGrad.ico" />
+    <None Include="xApp\Pictures\MaxGradBiGL.ico" />
+    <None Include="xApp\Pictures\MaxGradSBL.ico" />
+    <Content Include="xApp\Pictures\Meno.ico" />
+    <Content Include="xApp\Pictures\Nebbia.ico" />
+    <Content Include="xApp\Pictures\NebbiaForma.bmp" />
+    <Content Include="xApp\Pictures\NebbiaMaxLumNero.bmp" />
+    <Content Include="xApp\Pictures\NebbiaNero.bmp" />
+    <None Include="xApp\Pictures\NextBlue.ico" />
+    <None Include="xApp\Pictures\NextMenu.ico" />
+    <Content Include="xApp\Pictures\NoUserLogged.png" />
+    <Content Include="xApp\Pictures\PlcCollegato.ico" />
+    <Content Include="xApp\Pictures\PlcCollegato1.ico" />
+    <Content Include="xApp\Pictures\PlcCollegato2.ico" />
+    <Content Include="xApp\Pictures\PlcCollegato3.ico" />
+    <Content Include="xApp\Pictures\PlcScollegato.ico" />
+    <Content Include="xApp\Pictures\plsArchivio.ico" />
+    <Content Include="xApp\Pictures\plsCalibrazione.ico" />
+    <Content Include="xApp\Pictures\plsCancella.ico" />
+    <Content Include="xApp\Pictures\plsCapability.ico" />
+    <Content Include="xApp\Pictures\plsChiudi.ico" />
+    <Content Include="xApp\Pictures\plsConfig.ico" />
+    <Content Include="xApp\Pictures\PLSCOPIA.ICO" />
+    <None Include="xApp\Pictures\plsEdit.ico" />
+    <Content Include="xApp\Pictures\plsFine.ico" />
+    <Content Include="xApp\Pictures\plsFineLavoro.ico" />
+    <Content Include="xApp\Pictures\plsGeometrico.ico" />
+    <Content Include="xApp\Pictures\plsInfo.ico" />
+    <Content Include="xApp\Pictures\plsInizioLavoro.ico" />
+    <Content Include="xApp\Pictures\plsInvioAPlc.ico" />
+    <Content Include="xApp\Pictures\plsLavoro.ico" />
+    <Content Include="xApp\Pictures\plsMisure.ico" />
+    <Content Include="xApp\Pictures\plsModifica.ico" />
+    <Content Include="xApp\Pictures\plsNessuno.ico" />
+    <Content Include="xApp\Pictures\plsNuovaRicetta.ICO" />
+    <Content Include="xApp\Pictures\plsPreviuosMenu.ico" />
+    <Content Include="xApp\Pictures\plsProvaLmp.ico" />
+    <Content Include="xApp\Pictures\plsRicette.ico" />
+    <Content Include="xApp\Pictures\plsSalva.ico" />
+    <Content Include="xApp\Pictures\plsScarti.ico" />
+    <None Include="xApp\Pictures\plsStop.ICO" />
+    <Content Include="xApp\Pictures\plsTensDiAlim.ico" />
+    <Content Include="xApp\Pictures\plsUtility.ico" />
+    <Content Include="xApp\Pictures\Posiz.ico" />
+    <None Include="xApp\Pictures\PrevMenu.ico" />
+    <Content Include="xApp\Pictures\PuntoV.bmp" />
+    <Content Include="xApp\Pictures\PuntoV.ico" />
+    <Content Include="xApp\Pictures\PuntoVMaxGradNero.bmp" />
+    <Content Include="xApp\Pictures\PuntoVnero.bmp" />
+    <Content Include="xApp\Pictures\Regolaz.png" />
+    <None Include="xApp\Pictures\Save.ico" />
+    <None Include="xApp\Pictures\RESET.ICO" />
+    <Content Include="xApp\Pictures\Screwdriver_32.png" />
+    <Content Include="xApp\Pictures\Shape.ico" />
+    <Content Include="xApp\Pictures\shapes.ico" />
+    <None Include="xApp\Pictures\StopBlue.ico" />
+    <None Include="xApp\Pictures\StopWhite.ico" />
+    <None Include="xApp\Pictures\StopRed.ico" />
+    <Content Include="xApp\Pictures\Team.ico" />
+    <None Include="xApp\Pictures\TempMaxMax.ico" />
+    <None Include="xApp\Pictures\TensDiAlimDisabled.ico" />
+    <Content Include="xApp\Pictures\TestElettrico.ico" />
+    <Content Include="xApp\Pictures\TipoGuida.ico" />
+    <Content Include="xApp\Pictures\Turni.ICO" />
+    <Content Include="xApp\Pictures\Undo.ico" />
+    <Content Include="xApp\Pictures\Up-round-32.PNG" />
+    <Content Include="xApp\Pictures\User.ico" />
+    <Content Include="xApp\Pictures\UserLogged.png" />
+    <Content Include="xApp\Pictures\VolFormaNero.bmp" />
+    <Content Include="xApp\Pictures\VOLNero.bmp" />
+    <Content Include="xApp\Pictures\VorFormaNero.bmp" />
+    <Content Include="xApp\Pictures\VORNero.bmp" />
+    <Content Include="xApp\Pictures\WIZARD.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnzoLib\EnzoLib.vbproj">
+      <Project>{36ACEBAB-613D-419B-A1B5-E67B00F3CC53}</Project>
+      <Name>EnzoLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Geometry\" />
+    <Folder Include="InputOutput\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(ProjectDir)lib\*.dll" "$(TargetDir)"
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

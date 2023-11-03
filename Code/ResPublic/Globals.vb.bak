@@ -1,0 +1,713 @@
+﻿Imports System.Xml
+Imports System.Xml.Serialization
+Imports System.Threading
+Imports System.ComponentModel
+Imports System.IO
+Imports System.Drawing.Design
+Imports System.Windows.Forms
+Imports System.Runtime.InteropServices
+
+Public Module ResPublic
+
+#Region "Constants"
+
+
+    Public Const cYes = "YES"
+    Public Const cNo = "NO"
+
+    Public Const cOFF = 0
+    Public Const cON = 1
+
+    Public Const cOK = "OK"
+    Public Const cNOK = "NOK"
+    Public Const cTestNotDone = "???"
+    Public Const cTestDisabled = "---"
+    Public Const cValueNok = "###"
+
+    Public BackColorForMsgDisabled As Color = Color.LightGray
+    Public BackColorForMsgStd As Color = Color.White
+    Public BackColorForMsgOk As Color = Color.Lime
+    Public BackColorForMsgNok As Color = Color.Red
+
+    Public ForeColorForMsgDisabled As Color = Color.Gray
+    Public ForeColorForMsgStd As Color = Color.Black
+    Public ForeColorForMsgOk As Color = Color.Green
+    Public ForeColorForMsgNok As Color = Color.Red
+    Public ForeColorForMsgWarning As Color = Color.DarkCyan
+
+
+    Public Const cNoDirection = 0
+    Public Const cVertDirectionUp = 1
+    Public Const cVertDirectionDown = 2
+    Public Const cHoriDirectionLeft = 3
+    Public Const cHoriDirectionRight = 4
+
+    Public Const cLocalSqlServer = "LocalSqlServer"
+    Public Const cRemoteSqlServer = "RemoteSqlServer"
+    Public Const cTraceSqlServer = "SqlTraceInterface"
+
+    Public Const cLowBeam = "LowBeam"
+    Public Const cHighBeam = "HighBeam"
+    Public Const cFog = "Fog"
+    Public Const cParkLight = "POS"
+    Public Const cTurnIndicator = "TI"
+    Public Const cDayLight = "DRL"
+    Public Const cSideMarker = "SM"
+
+
+
+
+
+
+#End Region
+
+
+    Public InternalCameraAlignRunning As Boolean = False
+    Public SetCameraReferenceRunning As Boolean = False
+    Public CheckCameraReferenceRunning As Boolean = False
+    ' Public CameraApertureRunning As Boolean = False
+    Public ShowGrid As Boolean = False
+
+    Public frmMainLocationX As Integer
+    Public frmMainLocationY As Integer
+    'Public SizeableRect As LasCore.Geometry.SizeableRectangle
+    Public xPicImage As PictureBox
+    Public ImageFileNameToLoad As String
+
+    Public xSizeableShape As CsharpLibrary.SizeableShape
+
+    Public xPatternManag As LasCore.PatternManagement
+
+
+    Public AutoMode As Boolean = False
+
+    
+
+    Public Enum enumScredriver
+        None
+        LowBeam
+        HighBeam
+        FogBeam
+        CornerLight
+        BIGL
+    End Enum
+
+
+    Public ScredriverUnderTest As enumScredriver = enumScredriver.None
+
+    Public genSync As New Object
+    Public WriteFileSync As New Object
+    Public IsoluxSync As New Object
+
+    Public myRnd As New Random
+
+    Public xRetentive As RetentiveVariables
+
+    Public xTextsManag As LasCore.TextsManagement
+
+
+    Public xGlobals As Globals
+
+    Public xAppConfig As AppConfig
+    Public xGeometry As LasCore.Geometry
+
+    Public xConfig As Configuration
+
+    Public xCameraManagement As LasCore.CameraManagement
+
+    Public xMain As frmMain
+
+    Public bmpLastImage As Bitmap
+    Public LastImagePtr As IntPtr
+
+    Public xPrinterHousingLabel As Printer
+
+    Public xUsers As LasCore.Users
+    Public xWorkers As LasCore.Workers
+
+    Public WithEvents xBadgeReader As BadgeReader
+
+
+    Public xShift As Shifts
+    Public xInOut As LasCore.IInOut
+    Public xInOutConfig As LasCore.InOutConfig
+    
+    Public xScrewdrivers As LasCore.screwdrivers
+
+
+    Public xRecipe As Recipe
+    Public xRecipeElet As RecipeElet
+    Public xRecipeGeom As RecipeGeom
+    Public xRecipePhotom As RecipePhotom
+    Public xRecipeAiming As RecipeAiming
+    Public xRecipeLabels As RecipeLabels
+    Public xRecipeMotors As RecipeMotors
+    Public xRecipeECUs As RecipeECUs
+    Public xRecipeLEDs As RecipeLEDs
+    Public xRecipeDriveSide As RecipeDriveSide
+
+    Public xMakeRecipeWizard As MakeRecipeWizard
+    Public xMakeRecipeWizNavigator As MakeRecipeWizNavigator
+    Public xUpdateRecipeWizNavigator As UpdateRecipeWizNavigator
+
+    Public xCameraAlignWizard As CameraAlignWizard
+    Public xCameraAlignWizNavigator As CameraAlignWizNavigator
+
+    Public xCameraReference As CameraReference
+
+
+    Public xRestartCamerasRequest As Integer = 0
+
+    Public WithEvents xBcr As eBcr
+    Public xLastBarcodeRead As String = ""
+
+    Public xTraceInterface As ITrace
+
+    Public xDataStorage As DataStorage
+    Public xDataBackUp As DataBackup
+
+    Public xCapability As Capability
+
+
+    Public xProduction As Production
+    Public xWorkData As WorkData
+
+    Public xFromPlc As PlcDataDecoding
+    Public xToPlc As PlcDataCoding
+    Public xPlcHmi As PlcHMI
+
+    Public xInfoOp As List(Of String)
+
+    Public xTest As Test
+    Public xGraphRes As GraphicResults
+    Public LastRunningModel As Model
+    Public xLightFuncs As LasCore.LightFunctions
+    Public xResultTestCodes As ResultCodes
+
+
+    Public xDrawsOnLive As DrawsOnLive
+
+    Public frmMainImageGraphics As System.Drawing.Graphics
+
+    Public xPicImageCameraMouseEvents As New picImageCameraMouseEvents
+    Public xPicImageCameraKeyboardEvents As New picImageCameraKeyboardEvents
+
+
+    Public ReadOnly Property LocalIp As String
+        Get
+            Return System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName).AddressList(0).ToString()
+        End Get
+    End Property
+
+    Public ReadOnly Property SqlDate As String
+        Get
+            Return Format(Date.Now, "yyyy-MM-dd") & "T" & Format(Date.Now, "HH:mm:ss") & "." & Date.Now.Millisecond
+            ' Return Format(Date.Now, "yyyy-MM-dd") & "" & Format(Date.Now, "HH:mm:ss.nnn")
+
+        End Get
+    End Property
+
+    Public ReadOnly Property TimeSep As String
+        Get
+            Dim Info As System.Globalization.DateTimeFormatInfo
+            Info = System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat
+            Return Info.TimeSeparator
+        End Get
+    End Property
+    Public ReadOnly Property TimeFormat As String
+        Get
+            Return "HH" & TimeSep & "mm" & TimeSep & "ss"
+        End Get
+    End Property
+    Public ReadOnly Property DateSep As String
+        Get
+            Dim Info As System.Globalization.DateTimeFormatInfo
+            Info = System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat
+            Return Info.DateSeparator
+        End Get
+    End Property
+    Public ReadOnly Property DateFormat As String
+        Get
+            Return "MM" & DateSep & "dd" & DateSep & "yyyy"
+        End Get
+    End Property
+
+    Public Function ThreadTimeout(ThreadSleepTime As Long) As Long
+        Dim timeout As Long = 1000
+        If ThreadSleepTime * 3 > timeout Then
+            timeout = ThreadSleepTime * 3
+        End If
+        Return timeout
+    End Function
+
+    Public ReadOnly Property lasDate As String
+        Get
+            Return Format(Date.Now, DateFormat)
+        End Get
+    End Property
+    Public ReadOnly Property lasTime As String
+        Get
+            Return Format(Date.Now, TimeFormat)
+        End Get
+    End Property
+    Public ReadOnly Property lasDateTime As String
+        Get
+            Return lasDate & " " & lasTime
+        End Get
+    End Property
+
+
+
+#Region "Lights functions"
+
+    Public Function SetLightFunctionsClassParams(ByVal ModelToUse As Model, EcuToUse As LasCore.Iecu, LightFuncsConfig As List(Of AppConfig.udtParams.udtLightFunction)) As LasCore.LightFunctions.udtClassParams
+        Dim p As New LasCore.LightFunctions.udtClassParams
+
+        p.Config.Clear()
+        For Each item As AppConfig.udtParams.udtLightFunction In LightFuncsConfig
+            Dim a As New LasCore.LightFunctions.udtClassParams.udtLightFunctionConfig
+            a.Enabled = item.Enabled
+            a.Name = item.Name
+            a.Text = item.Text
+            a.Format = item.Format
+            a.EngUnits = item.EngUnits
+            p.Config.Add(a)
+        Next
+
+        p.InOut = xInOut
+        p.EcuToUse = EcuToUse
+        p.SquareWaveFrequency = ModelToUse.Electric.SquareWaveFrequency
+
+        p.Lights.LowBeam = SetLightsParams(ModelToUse.Electric.Wiring.LowBeam, ModelToUse.Electric.Absortion.LowBeam.HeatingTime)
+        p.Lights.HighBeam = SetLightsParams(ModelToUse.Electric.Wiring.HighBeam, ModelToUse.Electric.Absortion.HighBeam.HeatingTime)
+        p.Lights.ParkLight = SetLightsParams(ModelToUse.Electric.Wiring.ParkLight, ModelToUse.Electric.Absortion.ParkLight.HeatingTime)
+        p.Lights.TurnIndicator = SetLightsParams(ModelToUse.Electric.Wiring.TurnIndicator, ModelToUse.Electric.Absortion.TurnIndicator.HeatingTime)
+        p.Lights.DayLight = SetLightsParams(ModelToUse.Electric.Wiring.DayLight, ModelToUse.Electric.Absortion.DayLight.HeatingTime)
+        p.Lights.FogLight = SetLightsParams(ModelToUse.Electric.Wiring.FogLight, ModelToUse.Electric.Absortion.FogLight.HeatingTime)
+        p.Lights.SideMarker = SetLightsParams(ModelToUse.Electric.Wiring.SideMarker, ModelToUse.Electric.Absortion.SideMarker.HeatingTime)
+        p.Lights.CornerLight = SetLightsParams(ModelToUse.Electric.Wiring.CornerLight, ModelToUse.Electric.Absortion.CorneringLight.HeatingTime)
+        p.Lights.LowBeamBase = SetLightsParams(ModelToUse.Electric.Wiring.LowBeamBase, ModelToUse.Electric.Absortion.LowBeamBase.HeatingTime)
+        p.Lights.LowBeamTop = SetLightsParams(ModelToUse.Electric.Wiring.LowBeamTop, ModelToUse.Electric.Absortion.LowBeamTop.HeatingTime)
+        p.Lights.WipeTI = SetLightsParams(ModelToUse.Electric.Wiring.WipeTI, ModelToUse.Electric.Absortion.WipeTI.HeatingTime)
+
+        Return p
+    End Function
+
+    Private Function SetLightsParams(wiring As RecipeElet.udtLightFunctionWiring, HeatingTime As Integer) As LasCore.LightFunctions.udtClassParams.udtLightFunctionParams
+        Dim p As New LasCore.LightFunctions.udtClassParams.udtLightFunctionParams
+
+        p.AnalogInputName = wiring.AnalogInputName
+        p.Delay = wiring.Delay
+        p.HeatingTime = HeatingTime
+        For i As Integer = 0 To wiring.OutputOn.Length - 1
+            p.OutputOn(i).HighToOn = wiring.OutputOn(i).HighToOn
+            p.OutputOn(i).Name = wiring.OutputOn(i).Name
+            p.OutputOn(i).Used = wiring.OutputOn(i).Used
+        Next
+        p.PwmCycle = wiring.PwmCycle
+
+        Return p
+    End Function
+
+#End Region
+
+
+
+
+    Public Function GetIdRecipeFromPieceCode(PieceCode As String, ByRef IsMaster As Boolean) As Integer
+        Dim myRecipe As Recipe
+        myRecipe = New Recipe(xGlobals.myRecipeFile)
+        myRecipe.ReadDataFromFile()
+        Dim IdRecipe As Integer = 0
+        For idModel = 1 To myRecipe.RecipeList.Count
+            Dim myRecParams As New Recipe.udtParams
+            myRecParams = myRecipe.ReadParams(idModel)
+            If Not IsNothing(myRecParams) Then
+                Dim Generic As New Recipe.udtParams
+                Generic = myRecipe.ReadParams(idModel)
+                Dim myRecipeLabels As RecipeLabels
+                myRecipeLabels = New RecipeLabels(xGlobals.myRecipeLabelsFile)
+                myRecipeLabels.ReadDataFromFile()
+                Dim Labels As New RecipeLabels.udtParams
+                Labels = myRecipeLabels.ReadParams(Generic.IdRecipeLabels)
+                If Labels.CheckForMaster.TextToCheck.Length <> 0 Then
+                    If Labels.CheckForMaster.TextToCheck = Mid(PieceCode, Labels.CheckForMaster.FirstCharToCheck, Labels.CheckForMaster.TextToCheck.Length) Then
+                        IdRecipe = idModel
+                        IsMaster = True
+                        Exit For
+                    End If
+                End If
+                If Labels.CheckForModel.TextToCheck.Length <> 0 Then
+                    If Labels.CheckForModel.TextToCheck = Mid(PieceCode, Labels.CheckForModel.FirstCharToCheck, Labels.CheckForModel.TextToCheck.Length) Then
+                        IdRecipe = idModel
+                        IsMaster = False
+                        Exit For
+                    End If
+                End If
+            End If
+        Next
+        Return IdRecipe
+    End Function
+
+
+    Public Function IsFormLoaded(ByVal FormName As String) As Boolean
+        For Each f As Form In Application.OpenForms
+            If f.Name = FormName Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
+
+    Public Sub WaitFormClosed(FormName As String)
+        Do
+            If IsFormLoaded(FormName) Then Exit Do
+            LasCore.Utilities.WaitWithEvents(20)
+        Loop
+        Do
+            If Not IsFormLoaded(FormName) Then Exit Do
+            LasCore.Utilities.WaitWithEvents(20)
+        Loop
+    End Sub
+
+    Public Sub ShowForm(frm As Object)
+
+        frm.Show()
+        WaitFormClosed(frm.name)
+        'frm.Enabled = True
+        'frm.Activate()
+
+    End Sub
+    Public Sub ShowForm(frm As Object, Parent As Object)
+
+        For Each c As Control In Parent.Controls
+            c.Enabled = False
+        Next
+
+        frm.Show(Parent)
+
+        WaitFormClosed(frm.name)
+        For Each c As Control In Parent.Controls
+            c.Enabled = True
+        Next
+        Parent.Enabled = True
+        Parent.Activate()
+
+    End Sub
+
+    Public Sub ShowBitmap(bmp As Bitmap)
+        If System.Diagnostics.Debugger.IsAttached Then
+            If (xPicImage.InvokeRequired) Then
+                xPicImage.Invoke(New Action(Of Bitmap)(AddressOf ShowBitmap), bmp)
+            Else
+                xPicImage.Image = bmp
+                'xPicImage.Refresh()
+            End If
+        End If
+    End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+End Module
+
+
+Public Class Globals
+
+
+    Public DataPath As String
+    Public TmpPath As String
+ 
+    Public DatabasePath As String  
+    Public LogPath As String
+    Public PicturePath As String
+    Public IncludePath As String
+    Public ArchivesPath As String
+    Public RecipesPath As String = ""
+    Public LabelsPath As String = ""
+    Public WizardPath As String = ""
+
+    Public myInOutConfigFile As String
+    Public myRecipeFile As String = ""
+    Public myRecipeEletFile As String = ""
+    Public myRecipeGeomFile As String = ""
+    Public myRecipePhotomFile As String = ""
+    Public myRecipeAimingFile As String = ""
+    Public myRecipeLabelsFile As String = ""
+    Public myRecipeMotorsFile As String = ""
+    Public myRecipeECUsFile As String = ""
+    Public myRecipeLEDsFile As String = ""
+    Public myRecipeDriveSideFile As String = ""
+
+   
+
+    Public VaiColCinema As Boolean
+    Public EndProgramRequest As Boolean
+    Public ForceEndProgram As Boolean
+   
+
+    Public Sub New()
+        
+    End Sub
+
+
+
+
+End Class
+
+Public Class picImageCameraMouseEvents
+
+#Region "Events"
+    Public Event MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs, BmpShown As Bitmap)
+    Public Event MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs, BmpShown As Bitmap)
+    Public Event MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs, BmpShown As Bitmap)
+    Public Event MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs, BmpShown As Bitmap)
+#End Region
+
+#Region "Methods"
+    Public Sub RaiseMouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs, BmpShown As Bitmap)
+        RaiseEvent MouseDown(sender, e, BmpShown)
+    End Sub
+    Public Sub RaiseMouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs, BmpShown As Bitmap)
+        RaiseEvent MouseMove(sender, e, BmpShown)
+    End Sub
+    Public Sub RaiseMouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs, BmpShown As Bitmap)
+        RaiseEvent MouseUp(sender, e, BmpShown)
+    End Sub
+    Public Sub RaiseMouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs, BmpShown As Bitmap)
+        RaiseEvent MouseClick(sender, e, BmpShown)
+    End Sub
+
+#End Region
+
+End Class
+
+Public Class picImageCameraKeyboardEvents
+
+#Region "Events"
+    Public Event KeyDown(sender As Object, e As KeyEventArgs, BmpShown As Bitmap)
+    Public Event KeyUp(sender As Object, e As KeyEventArgs, BmpShown As Bitmap)
+    Public Event KeyPress(sender As Object, e As KeyPressEventArgs, BmpShown As Bitmap)
+
+#End Region
+
+#Region "Methods"
+    Public Sub RaiseKeyDown(ByVal sender As Object, ByVal e As KeyEventArgs, BmpShown As Bitmap)
+        RaiseEvent KeyDown(sender, e, BmpShown)
+    End Sub
+    Public Sub RaiseKeyUp(ByVal sender As Object, ByVal e As KeyEventArgs, BmpShown As Bitmap)
+        RaiseEvent KeyUp(sender, e, BmpShown)
+    End Sub
+    Public Sub RaiseKeyPress(ByVal sender As Object, ByVal e As KeyPressEventArgs, BmpShown As Bitmap)
+        RaiseEvent KeyPress(sender, e, BmpShown)
+    End Sub
+#End Region
+
+End Class
+
+
+Public Class RetentiveVariables
+    Private ser As LasCore.Serialization
+
+    Public Class udtVariables
+
+        Public Property LastShiftName As String = ""
+        Public Property LastRunningRecipe As Integer = 0
+
+        Public Property Good As Integer = 0
+        Public Property Scrap As Integer = 0
+
+        Public Sub New()
+        End Sub
+
+    End Class
+
+
+#Region "Proprerties"
+
+    Public Property FileNameXml As String
+
+    Public Property Variables As udtVariables
+
+#End Region
+
+
+    Public Sub New(ByVal VariablesFileName As String, RestoreFolder As String)
+        FileNameXml = VariablesFileName
+        Variables = New udtVariables
+        ser = New LasCore.Serialization(FileNameXml, Variables, RestoreFolder)
+        ser.IgnoreEnabled = False
+    End Sub
+
+
+#Region "Methods"
+    Public Function ReadDataFromFile() As String
+        Dim ret As String = String.Empty
+        Try
+            Variables = ser.Deserialize()
+            ret = ser.Result
+        Catch ex As Exception
+            ret = ex.Message
+        Finally
+        End Try
+        Return ret
+    End Function
+
+    Public Sub WriteDataToFile()
+        ser.Serialize()
+    End Sub
+
+
+#End Region
+
+
+
+End Class
+
+
+Public Class Navigator
+    Public Enum enumNavigate
+        navCancel = 0
+        navBack = 1
+        navNext = 2
+        navFinish = 4
+        navJumpTo = 5
+    End Enum
+    Public Property Button As enumNavigate
+    Public Property StageToJump As Integer = 0
+    Public Property FormLocation As New Point(350, 650)
+
+
+
+End Class
+
+
+
+'Visualizza la finestra di dialogo per sfogliare le cartelle
+Public Class UIFolderEditor
+    Inherits System.Drawing.Design.UITypeEditor
+
+    Public Overloads Overrides Function GetEditStyle(ByVal context As  _
+                    ITypeDescriptorContext) As UITypeEditorEditStyle
+        If Not context Is Nothing AndAlso Not context.Instance Is Nothing Then
+            If Not context.PropertyDescriptor.IsReadOnly Then
+                Return UITypeEditorEditStyle.Modal
+            End If
+        End If
+        Return UITypeEditorEditStyle.None
+    End Function
+
+    <RefreshProperties(RefreshProperties.All)> _
+    Public Overloads Overrides Function EditValue( _
+                ByVal context As ITypeDescriptorContext, _
+                ByVal provider As System.IServiceProvider, _
+                ByVal value As [Object]) As [Object]
+
+        If context Is Nothing OrElse provider Is Nothing _
+                OrElse context.Instance Is Nothing Then
+            Return MyBase.EditValue(provider, value)
+        End If
+
+        'Sfoglia cartelle
+        Dim FolderDlg As FolderBrowserDialog
+        FolderDlg = New FolderBrowserDialog
+
+        FolderDlg.Description = "Select " & context.PropertyDescriptor.DisplayName
+        If Not value Is Nothing Then
+            FolderDlg.SelectedPath = value
+        End If
+        If FolderDlg.ShowDialog() = DialogResult.OK Then
+            value = FolderDlg.SelectedPath
+        End If
+        FolderDlg.Dispose()
+
+
+        Return value
+    End Function
+
+End Class
+
+
+'Visualizza la finestra di dialogo per sfogliare i files
+Public Class UIFilenameEditor
+    Inherits System.Drawing.Design.UITypeEditor
+
+    Public Overloads Overrides Function GetEditStyle(ByVal context As  _
+                    ITypeDescriptorContext) As UITypeEditorEditStyle
+        If Not context Is Nothing AndAlso Not context.Instance Is Nothing Then
+            If Not context.PropertyDescriptor.IsReadOnly Then
+                Return UITypeEditorEditStyle.Modal
+            End If
+        End If
+        Return UITypeEditorEditStyle.None
+    End Function
+
+    <RefreshProperties(RefreshProperties.All)> _
+    Public Overloads Overrides Function EditValue( _
+                ByVal context As ITypeDescriptorContext, _
+                ByVal provider As System.IServiceProvider, _
+                ByVal value As [Object]) As [Object]
+
+        If context Is Nothing OrElse provider Is Nothing _
+                OrElse context.Instance Is Nothing Then
+            Return MyBase.EditValue(provider, value)
+        End If
+
+        'Sfoglia file
+        Dim fileDlg As FileDialog
+        If context.PropertyDescriptor.Attributes(GetType(SaveFileAttribute)) Is Nothing Then
+            fileDlg = New OpenFileDialog
+        Else
+            fileDlg = New SaveFileDialog
+        End If
+
+        fileDlg.Title = "Select " & context.PropertyDescriptor.DisplayName
+        fileDlg.FileName = value
+
+        Dim filterAtt As FileDialogFilterAttribute = _
+                    context.PropertyDescriptor.Attributes(GetType(FileDialogFilterAttribute))
+        If Not filterAtt Is Nothing Then fileDlg.Filter = filterAtt.Filter
+        If fileDlg.ShowDialog() = DialogResult.OK Then
+            value = fileDlg.FileName
+        End If
+        fileDlg.Dispose()
+
+        Return value
+
+    End Function
+
+    <AttributeUsage(AttributeTargets.Property)> _
+    Public Class FileDialogFilterAttribute
+        Inherits Attribute
+        Private _filter As String
+
+        Public ReadOnly Property Filter() As String
+            Get
+                Return Me._filter
+            End Get
+        End Property
+
+        Public Sub New(ByVal filter As String)
+            MyBase.New()
+            Me._filter = filter
+        End Sub
+    End Class
+
+    <AttributeUsage(AttributeTargets.Property)> _
+    Public Class SaveFileAttribute
+        Inherits Attribute
+    End Class
+
+    Public Enum FileDialogType
+        LoadFileDialog
+        SaveFileDialog
+    End Enum
+End Class
