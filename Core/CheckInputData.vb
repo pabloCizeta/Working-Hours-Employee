@@ -105,6 +105,27 @@ Public Class CheckInputData
 
     End Function
 
+    Public Function AcceptOnlyMinusAsSpecial(ByVal ComboBox As ComboBox, ByVal TastoPremuto As Char) As Char
+        'Accetta solo il trattino come carattere speciale
+
+        Const CharsNOk = " .:_*\/?!()&%$£'^+,;<>|[]§#@°"
+
+        If TastoPremuto = Chr(34) Then
+            Return "-"
+        End If
+
+        If CharsNOk.Contains(TastoPremuto) Then
+            Return "-"
+        Else
+            Return TastoPremuto
+        End If
+
+
+
+        Return ""
+
+    End Function
+
     Public Function AcceptOnlyHex(ByVal TextBox As TextBox, ByVal KeyPressed As Char) As Char
         Const CharOk = "0123456789ABCDEFabcdef"
         Dim iPos As Integer = InStr(CharOk, KeyPressed)

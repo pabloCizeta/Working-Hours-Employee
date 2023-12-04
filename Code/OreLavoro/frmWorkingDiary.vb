@@ -17,6 +17,8 @@ Public Class frmWorkingDiary
     Private Sub frmWorkingDiary_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpDate.Value = New Date(DateTime.Now.Year, DateTime.Now.Month, 1)
 
+        UpdateDayName()
+
         Me.Text = My.Application.Info.AssemblyName & " - " & xGlobals.Release & " - Ore lavoro"
         Me.Icon = New System.Drawing.Icon(xGlobals.PicturePath & "OreLavoro.ico")
 
@@ -204,6 +206,9 @@ Public Class frmWorkingDiary
             End If
         Next
         dtpDateChanging = False
+
+        UpdateDayName()
+
     End Sub
 
     Private Sub dgvOreLavoro_SelectionChanged(sender As Object, e As EventArgs) Handles dgvOreLavoro.SelectionChanged
@@ -342,6 +347,12 @@ Public Class frmWorkingDiary
         e.KeyChar = CheckInputData.OnlyNumber(sender, e.KeyChar, "+")
     End Sub
 
+    Private Sub OnlyMinusAcceptedOnKeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles cboOrderName.KeyPress
+
+        sender.backcolor = Color.White
+        e.KeyChar = CheckInputData.AcceptOnlyMinusAsSpecial(sender, e.KeyChar)
+    End Sub
+
 
     Private Function CheckData() As Boolean
 
@@ -388,6 +399,27 @@ Public Class frmWorkingDiary
 
     Private Sub cboOrderName_DropDown(sender As Object, e As EventArgs) Handles cboOrderName.DropDown
         cboOrderName.BackColor = Color.White
+    End Sub
+
+    Private Sub UpdateDayName()
+
+        lblDay.Text = dtpDate.Value.DayOfWeek.ToString
+        lblDay.Text = lblDay.Text.Remove(3)
+
+        Select Case dtpDate.Value.DayOfWeek
+
+            Case DayOfWeek.Sunday
+                lblDay.ForeColor = Color.Red
+
+            Case DayOfWeek.Saturday
+                lblDay.ForeColor = Color.DarkOrange
+
+            Case Else
+                lblDay.ForeColor = Color.Black
+
+        End Select
+
+
     End Sub
 
 
