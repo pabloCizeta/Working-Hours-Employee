@@ -37,6 +37,9 @@ Partial Class frmExpenses
         Me.Label15 = New System.Windows.Forms.Label()
         Me.dgv = New System.Windows.Forms.DataGridView()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.chkHotel = New System.Windows.Forms.CheckBox()
         Me.chkEstero = New System.Windows.Forms.CheckBox()
         Me.chkItaly = New System.Windows.Forms.CheckBox()
@@ -66,9 +69,7 @@ Partial Class frmExpenses
         Me.plsNext = New System.Windows.Forms.Button()
         Me.lblData = New System.Windows.Forms.Label()
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
+        Me.lblDay = New System.Windows.Forms.Label()
         Me.panMenu.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.panOreLavoro.SuspendLayout()
@@ -132,6 +133,7 @@ Partial Class frmExpenses
         'panOreLavoro
         '
         Me.panOreLavoro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.panOreLavoro.Controls.Add(Me.lblDay)
         Me.panOreLavoro.Controls.Add(Me.lblEmployeeName)
         Me.panOreLavoro.Controls.Add(Me.Label15)
         Me.panOreLavoro.Controls.Add(Me.dgv)
@@ -153,9 +155,9 @@ Partial Class frmExpenses
         '
         Me.lblEmployeeName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblEmployeeName.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEmployeeName.Location = New System.Drawing.Point(45, 7)
+        Me.lblEmployeeName.Location = New System.Drawing.Point(41, 7)
         Me.lblEmployeeName.Name = "lblEmployeeName"
-        Me.lblEmployeeName.Size = New System.Drawing.Size(226, 20)
+        Me.lblEmployeeName.Size = New System.Drawing.Size(207, 20)
         Me.lblEmployeeName.TabIndex = 240
         Me.lblEmployeeName.Text = "Nome"
         Me.lblEmployeeName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -164,7 +166,7 @@ Partial Class frmExpenses
         '
         Me.Label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(7, 7)
+        Me.Label15.Location = New System.Drawing.Point(3, 7)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(38, 20)
         Me.Label15.TabIndex = 239
@@ -228,6 +230,39 @@ Partial Class frmExpenses
         Me.GroupBox3.TabIndex = 231
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Località"
+        '
+        'Label13
+        '
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(460, 6)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(67, 15)
+        Me.Label13.TabIndex = 239
+        Me.Label13.Text = "Pernottamento"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label12
+        '
+        Me.Label12.BackColor = System.Drawing.Color.Transparent
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(403, 6)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(34, 15)
+        Me.Label12.TabIndex = 238
+        Me.Label12.Text = "Estero"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label11
+        '
+        Me.Label11.BackColor = System.Drawing.Color.Transparent
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(356, 6)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(39, 15)
+        Me.Label11.TabIndex = 237
+        Me.Label11.Text = "Italia"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'chkHotel
         '
@@ -481,7 +516,7 @@ Partial Class frmExpenses
         '
         Me.plsFilter.Image = CType(resources.GetObject("plsFilter.Image"), System.Drawing.Image)
         Me.plsFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.plsFilter.Location = New System.Drawing.Point(838, 4)
+        Me.plsFilter.Location = New System.Drawing.Point(847, 4)
         Me.plsFilter.Name = "plsFilter"
         Me.plsFilter.Size = New System.Drawing.Size(25, 26)
         Me.plsFilter.TabIndex = 222
@@ -491,7 +526,7 @@ Partial Class frmExpenses
         '
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(554, 7)
+        Me.Label1.Location = New System.Drawing.Point(563, 7)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(60, 20)
         Me.Label1.TabIndex = 221
@@ -502,7 +537,7 @@ Partial Class frmExpenses
         '
         Me.cboOrderName.BackColor = System.Drawing.SystemColors.Window
         Me.cboOrderName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboOrderName.Location = New System.Drawing.Point(614, 7)
+        Me.cboOrderName.Location = New System.Drawing.Point(623, 7)
         Me.cboOrderName.Name = "cboOrderName"
         Me.cboOrderName.Size = New System.Drawing.Size(220, 21)
         Me.cboOrderName.TabIndex = 220
@@ -511,7 +546,7 @@ Partial Class frmExpenses
         '
         Me.plsNext.Image = CType(resources.GetObject("plsNext.Image"), System.Drawing.Image)
         Me.plsNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.plsNext.Location = New System.Drawing.Point(516, 4)
+        Me.plsNext.Location = New System.Drawing.Point(533, 4)
         Me.plsNext.Name = "plsNext"
         Me.plsNext.Size = New System.Drawing.Size(25, 26)
         Me.plsNext.TabIndex = 218
@@ -521,7 +556,7 @@ Partial Class frmExpenses
         '
         Me.lblData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblData.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblData.Location = New System.Drawing.Point(277, 7)
+        Me.lblData.Location = New System.Drawing.Point(260, 7)
         Me.lblData.Name = "lblData"
         Me.lblData.Size = New System.Drawing.Size(33, 20)
         Me.lblData.TabIndex = 205
@@ -530,44 +565,23 @@ Partial Class frmExpenses
         '
         'dtpDate
         '
-        Me.dtpDate.Location = New System.Drawing.Point(311, 7)
+        Me.dtpDate.Location = New System.Drawing.Point(328, 7)
         Me.dtpDate.Name = "dtpDate"
         Me.dtpDate.Size = New System.Drawing.Size(203, 20)
         Me.dtpDate.TabIndex = 143
         Me.dtpDate.Value = New Date(2023, 7, 13, 0, 0, 0, 0)
         '
-        'Label11
+        'lblDay
         '
-        Me.Label11.BackColor = System.Drawing.Color.Transparent
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(356, 6)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(39, 15)
-        Me.Label11.TabIndex = 237
-        Me.Label11.Text = "Italia"
-        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label12
-        '
-        Me.Label12.BackColor = System.Drawing.Color.Transparent
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(403, 6)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(34, 15)
-        Me.Label12.TabIndex = 238
-        Me.Label12.Text = "Estero"
-        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label13
-        '
-        Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(460, 6)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(67, 15)
-        Me.Label13.TabIndex = 239
-        Me.Label13.Text = "Pernottamento"
-        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblDay.BackColor = System.Drawing.Color.White
+        Me.lblDay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblDay.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDay.Location = New System.Drawing.Point(294, 7)
+        Me.lblDay.Name = "lblDay"
+        Me.lblDay.Size = New System.Drawing.Size(33, 20)
+        Me.lblDay.TabIndex = 241
+        Me.lblDay.Text = "Lun"
+        Me.lblDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmExpenses
         '
@@ -639,4 +653,5 @@ Partial Class frmExpenses
     Friend WithEvents Label11 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
+    Friend WithEvents lblDay As Label
 End Class

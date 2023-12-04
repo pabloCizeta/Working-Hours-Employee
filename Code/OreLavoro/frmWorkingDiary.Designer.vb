@@ -54,6 +54,7 @@ Partial Class frmWorkingDiary
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
         Me.dgvOreLavoro = New System.Windows.Forms.DataGridView()
         Me.panMenu = New System.Windows.Forms.Panel()
+        Me.lblDay = New System.Windows.Forms.Label()
         Me.mnu = New OreLavoroDipendenti.ucMenu()
         Me.panOreLavoro.SuspendLayout()
         CType(Me.dgvOreLavoro, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,6 +64,7 @@ Partial Class frmWorkingDiary
         'panOreLavoro
         '
         Me.panOreLavoro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.panOreLavoro.Controls.Add(Me.lblDay)
         Me.panOreLavoro.Controls.Add(Me.lblEmployeeName)
         Me.panOreLavoro.Controls.Add(Me.Label15)
         Me.panOreLavoro.Controls.Add(Me.lblTotaleOreStraordinario)
@@ -97,7 +99,7 @@ Partial Class frmWorkingDiary
         '
         Me.lblEmployeeName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblEmployeeName.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEmployeeName.Location = New System.Drawing.Point(65, 10)
+        Me.lblEmployeeName.Location = New System.Drawing.Point(56, 10)
         Me.lblEmployeeName.Name = "lblEmployeeName"
         Me.lblEmployeeName.Size = New System.Drawing.Size(238, 20)
         Me.lblEmployeeName.TabIndex = 238
@@ -108,7 +110,7 @@ Partial Class frmWorkingDiary
         '
         Me.Label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(13, 10)
+        Me.Label15.Location = New System.Drawing.Point(4, 10)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(49, 20)
         Me.Label15.TabIndex = 237
@@ -185,7 +187,7 @@ Partial Class frmWorkingDiary
         '
         Me.plsFilter.Image = CType(resources.GetObject("plsFilter.Image"), System.Drawing.Image)
         Me.plsFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.plsFilter.Location = New System.Drawing.Point(632, 13)
+        Me.plsFilter.Location = New System.Drawing.Point(642, 13)
         Me.plsFilter.Name = "plsFilter"
         Me.plsFilter.Size = New System.Drawing.Size(25, 26)
         Me.plsFilter.TabIndex = 219
@@ -195,7 +197,7 @@ Partial Class frmWorkingDiary
         '
         Me.plsNext.Image = CType(resources.GetObject("plsNext.Image"), System.Drawing.Image)
         Me.plsNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.plsNext.Location = New System.Drawing.Point(265, 36)
+        Me.plsNext.Location = New System.Drawing.Point(288, 36)
         Me.plsNext.Name = "plsNext"
         Me.plsNext.Size = New System.Drawing.Size(25, 26)
         Me.plsNext.TabIndex = 218
@@ -205,7 +207,7 @@ Partial Class frmWorkingDiary
         '
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(339, 67)
+        Me.Label7.Location = New System.Drawing.Point(349, 67)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(67, 20)
         Me.Label7.TabIndex = 217
@@ -216,7 +218,7 @@ Partial Class frmWorkingDiary
         '
         Me.cboSector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboSector.FormattingEnabled = True
-        Me.cboSector.Location = New System.Drawing.Point(406, 67)
+        Me.cboSector.Location = New System.Drawing.Point(416, 67)
         Me.cboSector.Name = "cboSector"
         Me.cboSector.Size = New System.Drawing.Size(220, 21)
         Me.cboSector.TabIndex = 216
@@ -225,7 +227,7 @@ Partial Class frmWorkingDiary
         '
         Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(339, 39)
+        Me.Label6.Location = New System.Drawing.Point(349, 39)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(67, 20)
         Me.Label6.TabIndex = 215
@@ -236,7 +238,7 @@ Partial Class frmWorkingDiary
         '
         Me.cboActivity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboActivity.FormattingEnabled = True
-        Me.cboActivity.Location = New System.Drawing.Point(406, 39)
+        Me.cboActivity.Location = New System.Drawing.Point(416, 39)
         Me.cboActivity.Name = "cboActivity"
         Me.cboActivity.Size = New System.Drawing.Size(220, 21)
         Me.cboActivity.TabIndex = 214
@@ -245,7 +247,7 @@ Partial Class frmWorkingDiary
         '
         Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(339, 13)
+        Me.Label5.Location = New System.Drawing.Point(349, 13)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(67, 20)
         Me.Label5.TabIndex = 213
@@ -255,7 +257,7 @@ Partial Class frmWorkingDiary
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(267, 73)
+        Me.Label4.Location = New System.Drawing.Point(259, 73)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(44, 13)
         Me.Label4.TabIndex = 212
@@ -265,7 +267,7 @@ Partial Class frmWorkingDiary
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(112, 72)
+        Me.Label3.Location = New System.Drawing.Point(104, 72)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(44, 13)
         Me.Label3.TabIndex = 211
@@ -274,7 +276,7 @@ Partial Class frmWorkingDiary
         '
         'txtOreViaggio
         '
-        Me.txtOreViaggio.Location = New System.Drawing.Point(226, 68)
+        Me.txtOreViaggio.Location = New System.Drawing.Point(218, 68)
         Me.txtOreViaggio.Name = "txtOreViaggio"
         Me.txtOreViaggio.Size = New System.Drawing.Size(37, 20)
         Me.txtOreViaggio.TabIndex = 210
@@ -283,7 +285,7 @@ Partial Class frmWorkingDiary
         '
         'txtOreLavoro
         '
-        Me.txtOreLavoro.Location = New System.Drawing.Point(75, 67)
+        Me.txtOreLavoro.Location = New System.Drawing.Point(67, 67)
         Me.txtOreLavoro.Name = "txtOreLavoro"
         Me.txtOreLavoro.Size = New System.Drawing.Size(37, 20)
         Me.txtOreLavoro.TabIndex = 209
@@ -294,7 +296,7 @@ Partial Class frmWorkingDiary
         '
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(162, 68)
+        Me.Label2.Location = New System.Drawing.Point(154, 68)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(64, 20)
         Me.Label2.TabIndex = 208
@@ -305,7 +307,7 @@ Partial Class frmWorkingDiary
         '
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 67)
+        Me.Label1.Location = New System.Drawing.Point(4, 67)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(63, 20)
         Me.Label1.TabIndex = 207
@@ -314,7 +316,7 @@ Partial Class frmWorkingDiary
         '
         'cboOrderName
         '
-        Me.cboOrderName.Location = New System.Drawing.Point(406, 13)
+        Me.cboOrderName.Location = New System.Drawing.Point(416, 13)
         Me.cboOrderName.Name = "cboOrderName"
         Me.cboOrderName.Size = New System.Drawing.Size(220, 21)
         Me.cboOrderName.TabIndex = 206
@@ -323,7 +325,7 @@ Partial Class frmWorkingDiary
         '
         Me.lblData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblData.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblData.Location = New System.Drawing.Point(13, 39)
+        Me.lblData.Location = New System.Drawing.Point(4, 39)
         Me.lblData.Name = "lblData"
         Me.lblData.Size = New System.Drawing.Size(41, 20)
         Me.lblData.TabIndex = 205
@@ -332,7 +334,7 @@ Partial Class frmWorkingDiary
         '
         'dtpDate
         '
-        Me.dtpDate.Location = New System.Drawing.Point(54, 39)
+        Me.dtpDate.Location = New System.Drawing.Point(80, 39)
         Me.dtpDate.Name = "dtpDate"
         Me.dtpDate.Size = New System.Drawing.Size(203, 20)
         Me.dtpDate.TabIndex = 143
@@ -385,6 +387,18 @@ Partial Class frmWorkingDiary
         Me.panMenu.Name = "panMenu"
         Me.panMenu.Size = New System.Drawing.Size(136, 637)
         Me.panMenu.TabIndex = 143
+        '
+        'lblDay
+        '
+        Me.lblDay.BackColor = System.Drawing.Color.White
+        Me.lblDay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblDay.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDay.Location = New System.Drawing.Point(46, 39)
+        Me.lblDay.Name = "lblDay"
+        Me.lblDay.Size = New System.Drawing.Size(33, 20)
+        Me.lblDay.TabIndex = 239
+        Me.lblDay.Text = "Lun"
+        Me.lblDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'mnu
         '
@@ -441,4 +455,5 @@ Partial Class frmWorkingDiary
     Friend WithEvents panMenu As Panel
     Friend WithEvents mnu As ucMenu
     Friend WithEvents lblEmployeeName As Label
+    Friend WithEvents lblDay As Label
 End Class

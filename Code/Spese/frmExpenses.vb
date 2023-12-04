@@ -15,6 +15,8 @@ Public Class frmExpenses
     Private Sub frmExpenses_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpDate.Value = New Date(DateTime.Now.Year, DateTime.Now.Month, 1)
 
+        UpdateDayName()
+
         Me.Text = My.Application.Info.AssemblyName & " - " & xGlobals.Release & " - Spese e rimborsi"
         Me.Icon = New System.Drawing.Icon(xGlobals.PicturePath & "OreLavoro.ico")
 
@@ -159,6 +161,8 @@ Public Class frmExpenses
             End If
         Next
         dtpDateChanging = False
+
+        UpdateDayName()
     End Sub
 
     Private Sub dgv_SelectionChanged(sender As Object, e As EventArgs) Handles dgv.SelectionChanged
@@ -448,6 +452,28 @@ Public Class frmExpenses
     End Sub
 
     Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
+
+    End Sub
+
+
+    Private Sub UpdateDayName()
+
+        lblDay.Text = dtpDate.Value.DayOfWeek.ToString
+        lblDay.Text = lblDay.Text.Remove(3)
+
+        Select Case dtpDate.Value.DayOfWeek
+
+            Case DayOfWeek.Sunday
+                lblDay.ForeColor = Color.Red
+
+            Case DayOfWeek.Saturday
+                lblDay.ForeColor = Color.DarkOrange
+
+            Case Else
+                lblDay.ForeColor = Color.Black
+
+        End Select
+
 
     End Sub
 
