@@ -22,12 +22,20 @@ Partial Class frmWorkingDiary
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmWorkingDiary))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.panOreLavoro = New System.Windows.Forms.Panel()
+        Me.lblInfo = New System.Windows.Forms.Label()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.lblTotaleOre = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.lblDay = New System.Windows.Forms.Label()
         Me.lblEmployeeName = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.lblTotaleOreStraordinario = New System.Windows.Forms.Label()
@@ -54,7 +62,6 @@ Partial Class frmWorkingDiary
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
         Me.dgvOreLavoro = New System.Windows.Forms.DataGridView()
         Me.panMenu = New System.Windows.Forms.Panel()
-        Me.lblDay = New System.Windows.Forms.Label()
         Me.mnu = New OreLavoroDipendenti.ucMenu()
         Me.panOreLavoro.SuspendLayout()
         CType(Me.dgvOreLavoro, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,6 +71,11 @@ Partial Class frmWorkingDiary
         'panOreLavoro
         '
         Me.panOreLavoro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.panOreLavoro.Controls.Add(Me.lblInfo)
+        Me.panOreLavoro.Controls.Add(Me.Label10)
+        Me.panOreLavoro.Controls.Add(Me.Label8)
+        Me.panOreLavoro.Controls.Add(Me.lblTotaleOre)
+        Me.panOreLavoro.Controls.Add(Me.Label9)
         Me.panOreLavoro.Controls.Add(Me.lblDay)
         Me.panOreLavoro.Controls.Add(Me.lblEmployeeName)
         Me.panOreLavoro.Controls.Add(Me.Label15)
@@ -95,6 +107,84 @@ Partial Class frmWorkingDiary
         Me.panOreLavoro.Size = New System.Drawing.Size(673, 635)
         Me.panOreLavoro.TabIndex = 144
         '
+        'lblInfo
+        '
+        Me.lblInfo.BackColor = System.Drawing.Color.Transparent
+        Me.lblInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInfo.ImageKey = "Info.ico"
+        Me.lblInfo.ImageList = Me.ImageList1
+        Me.lblInfo.Location = New System.Drawing.Point(327, 12)
+        Me.lblInfo.Name = "lblInfo"
+        Me.lblInfo.Size = New System.Drawing.Size(20, 20)
+        Me.lblInfo.TabIndex = 244
+        Me.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "Icojam-Blue-Bits-Math-add.png")
+        Me.ImageList1.Images.SetKeyName(1, "Math-Equal.png")
+        Me.ImageList1.Images.SetKeyName(2, "Info.ico")
+        '
+        'Label10
+        '
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ImageKey = "Math-Equal.png"
+        Me.Label10.ImageList = Me.ImageList1
+        Me.Label10.Location = New System.Drawing.Point(303, 607)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(20, 20)
+        Me.Label10.TabIndex = 243
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label8
+        '
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ImageKey = "Icojam-Blue-Bits-Math-add.png"
+        Me.Label8.ImageList = Me.ImageList1
+        Me.Label8.Location = New System.Drawing.Point(140, 607)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(20, 20)
+        Me.Label8.TabIndex = 242
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblTotaleOre
+        '
+        Me.lblTotaleOre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblTotaleOre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotaleOre.Location = New System.Drawing.Point(422, 607)
+        Me.lblTotaleOre.Name = "lblTotaleOre"
+        Me.lblTotaleOre.Size = New System.Drawing.Size(45, 20)
+        Me.lblTotaleOre.TabIndex = 241
+        Me.lblTotaleOre.Text = "123.59"
+        Me.lblTotaleOre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label9
+        '
+        Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(325, 607)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(97, 20)
+        Me.Label9.TabIndex = 240
+        Me.Label9.Text = "Totale ore"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblDay
+        '
+        Me.lblDay.BackColor = System.Drawing.Color.White
+        Me.lblDay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblDay.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDay.Location = New System.Drawing.Point(46, 39)
+        Me.lblDay.Name = "lblDay"
+        Me.lblDay.Size = New System.Drawing.Size(33, 20)
+        Me.lblDay.TabIndex = 239
+        Me.lblDay.Text = "Lun"
+        Me.lblDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'lblEmployeeName
         '
         Me.lblEmployeeName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
@@ -121,7 +211,7 @@ Partial Class frmWorkingDiary
         '
         Me.lblTotaleOreStraordinario.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblTotaleOreStraordinario.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotaleOreStraordinario.Location = New System.Drawing.Point(608, 607)
+        Me.lblTotaleOreStraordinario.Location = New System.Drawing.Point(619, 607)
         Me.lblTotaleOreStraordinario.Name = "lblTotaleOreStraordinario"
         Me.lblTotaleOreStraordinario.Size = New System.Drawing.Size(45, 20)
         Me.lblTotaleOreStraordinario.TabIndex = 225
@@ -132,7 +222,7 @@ Partial Class frmWorkingDiary
         '
         Me.lblTotaleOreViaggio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblTotaleOreViaggio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotaleOreViaggio.Location = New System.Drawing.Point(433, 607)
+        Me.lblTotaleOreViaggio.Location = New System.Drawing.Point(260, 607)
         Me.lblTotaleOreViaggio.Name = "lblTotaleOreViaggio"
         Me.lblTotaleOreViaggio.Size = New System.Drawing.Size(45, 20)
         Me.lblTotaleOreViaggio.TabIndex = 224
@@ -143,7 +233,7 @@ Partial Class frmWorkingDiary
         '
         Me.lblTotaleOreLavoro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblTotaleOreLavoro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotaleOreLavoro.Location = New System.Drawing.Point(258, 607)
+        Me.lblTotaleOreLavoro.Location = New System.Drawing.Point(96, 607)
         Me.lblTotaleOreLavoro.Name = "lblTotaleOreLavoro"
         Me.lblTotaleOreLavoro.Size = New System.Drawing.Size(45, 20)
         Me.lblTotaleOreLavoro.TabIndex = 223
@@ -154,7 +244,7 @@ Partial Class frmWorkingDiary
         '
         Me.Label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(490, 607)
+        Me.Label14.Location = New System.Drawing.Point(501, 607)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(118, 20)
         Me.Label14.TabIndex = 222
@@ -165,7 +255,7 @@ Partial Class frmWorkingDiary
         '
         Me.Label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(336, 607)
+        Me.Label13.Location = New System.Drawing.Point(163, 607)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(97, 20)
         Me.Label13.TabIndex = 221
@@ -176,7 +266,7 @@ Partial Class frmWorkingDiary
         '
         Me.Label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(167, 607)
+        Me.Label12.Location = New System.Drawing.Point(5, 607)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(92, 20)
         Me.Label12.TabIndex = 220
@@ -388,18 +478,6 @@ Partial Class frmWorkingDiary
         Me.panMenu.Size = New System.Drawing.Size(136, 637)
         Me.panMenu.TabIndex = 143
         '
-        'lblDay
-        '
-        Me.lblDay.BackColor = System.Drawing.Color.White
-        Me.lblDay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblDay.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDay.Location = New System.Drawing.Point(46, 39)
-        Me.lblDay.Name = "lblDay"
-        Me.lblDay.Size = New System.Drawing.Size(33, 20)
-        Me.lblDay.TabIndex = 239
-        Me.lblDay.Text = "Lun"
-        Me.lblDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'mnu
         '
         Me.mnu.Location = New System.Drawing.Point(-1, -3)
@@ -456,4 +534,10 @@ Partial Class frmWorkingDiary
     Friend WithEvents mnu As ucMenu
     Friend WithEvents lblEmployeeName As Label
     Friend WithEvents lblDay As Label
+    Friend WithEvents lblTotaleOre As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents Label8 As Label
+    Friend WithEvents lblInfo As Label
 End Class

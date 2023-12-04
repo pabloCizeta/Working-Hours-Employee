@@ -115,6 +115,9 @@ Public Class frmWorkingDiary
                 lblTotaleOreLavoro.Text = TimeSpanToText(ore.Lavoro)
                 lblTotaleOreViaggio.Text = TimeSpanToText(ore.Viaggio)
 
+                Dim Total As TimeSpan = ore.Lavoro.Add(ore.Viaggio)
+                lblTotaleOre.Text = TimeSpanToText(Total)
+
                 Dim wh As TimeSpan = GetWorkingHours(BeginDate, EndDate)
                 ore.Straordinario = ore.Lavoro.Add(ore.Viaggio)
                 ore.Straordinario = ore.Straordinario.Subtract(wh)
@@ -420,6 +423,13 @@ Public Class frmWorkingDiary
         End Select
 
 
+    End Sub
+
+    Private Sub lblInfo_Click(sender As Object, e As EventArgs) Handles lblInfo.Click
+        MsgBox("Per digitare il codice della nuova commessa seguire le seguenti regole:
+1. Nome del cliente. Es. CVL
+2. Trattino separatore. 
+3. Numero della commessa del cliente e/o riferimento offerta. Es. VA001", MsgBoxStyle.Information + MsgBoxStyle.OkOnly)
     End Sub
 
 

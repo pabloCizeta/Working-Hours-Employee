@@ -31,6 +31,8 @@ Public Class frmExpenses
 
         LoadData()
 
+        ReadEmployeeData()
+
         IsLoading = False
 
     End Sub
@@ -476,6 +478,24 @@ Public Class frmExpenses
 
 
     End Sub
+
+    Private Sub ReadEmployeeData()
+
+        'Leggi il file per dati da importare nella versione dipendenti
+        Dim FileName As String = xGlobals.DataPath & "\Data" & lblEmployeeName.Text.Replace(" ", "") & ".xml"
+        Dim data As New EmployeeData(FileName)
+        data.ReadDataFromFile()
+        If data.Data.MoneyAttuali.Count > 0 Then
+            txtRiporti.Text = data.Data.MoneyAttuali(0).Riporti
+        Else
+            txtRiporti.Text = 0
+        End If
+
+
+
+
+    End Sub
+
 
 #End Region
 

@@ -28,11 +28,14 @@ Partial Class frmExpenses
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmExpenses))
         Me.panMenu = New System.Windows.Forms.Panel()
-        Me.mnu = New OreLavoroDipendenti.ucMenu()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.panOreLavoro = New System.Windows.Forms.Panel()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.lblRiporti = New System.Windows.Forms.Label()
+        Me.txtRiporti = New System.Windows.Forms.TextBox()
+        Me.lblDay = New System.Windows.Forms.Label()
         Me.lblEmployeeName = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.dgv = New System.Windows.Forms.DataGridView()
@@ -69,10 +72,11 @@ Partial Class frmExpenses
         Me.plsNext = New System.Windows.Forms.Button()
         Me.lblData = New System.Windows.Forms.Label()
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
-        Me.lblDay = New System.Windows.Forms.Label()
+        Me.mnu = New OreLavoroDipendenti.ucMenu()
         Me.panMenu.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.panOreLavoro.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -87,13 +91,6 @@ Partial Class frmExpenses
         Me.panMenu.Name = "panMenu"
         Me.panMenu.Size = New System.Drawing.Size(136, 620)
         Me.panMenu.TabIndex = 146
-        '
-        'mnu
-        '
-        Me.mnu.Location = New System.Drawing.Point(-1, -2)
-        Me.mnu.Name = "mnu"
-        Me.mnu.Size = New System.Drawing.Size(135, 619)
-        Me.mnu.TabIndex = 1
         '
         'Label24
         '
@@ -133,6 +130,7 @@ Partial Class frmExpenses
         'panOreLavoro
         '
         Me.panOreLavoro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.panOreLavoro.Controls.Add(Me.GroupBox4)
         Me.panOreLavoro.Controls.Add(Me.lblDay)
         Me.panOreLavoro.Controls.Add(Me.lblEmployeeName)
         Me.panOreLavoro.Controls.Add(Me.Label15)
@@ -150,6 +148,49 @@ Partial Class frmExpenses
         Me.panOreLavoro.Name = "panOreLavoro"
         Me.panOreLavoro.Size = New System.Drawing.Size(877, 620)
         Me.panOreLavoro.TabIndex = 150
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.lblRiporti)
+        Me.GroupBox4.Controls.Add(Me.txtRiporti)
+        Me.GroupBox4.Location = New System.Drawing.Point(555, 39)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(309, 47)
+        Me.GroupBox4.TabIndex = 241
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Dati"
+        '
+        'lblRiporti
+        '
+        Me.lblRiporti.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblRiporti.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRiporti.Location = New System.Drawing.Point(6, 18)
+        Me.lblRiporti.Name = "lblRiporti"
+        Me.lblRiporti.Size = New System.Drawing.Size(79, 20)
+        Me.lblRiporti.TabIndex = 237
+        Me.lblRiporti.Text = "Riporti attuali"
+        Me.lblRiporti.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtRiporti
+        '
+        Me.txtRiporti.Location = New System.Drawing.Point(85, 18)
+        Me.txtRiporti.Name = "txtRiporti"
+        Me.txtRiporti.ReadOnly = True
+        Me.txtRiporti.Size = New System.Drawing.Size(68, 20)
+        Me.txtRiporti.TabIndex = 238
+        Me.txtRiporti.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblDay
+        '
+        Me.lblDay.BackColor = System.Drawing.Color.White
+        Me.lblDay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblDay.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDay.Location = New System.Drawing.Point(294, 7)
+        Me.lblDay.Name = "lblDay"
+        Me.lblDay.Size = New System.Drawing.Size(33, 20)
+        Me.lblDay.TabIndex = 241
+        Me.lblDay.Text = "Lun"
+        Me.lblDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblEmployeeName
         '
@@ -571,17 +612,12 @@ Partial Class frmExpenses
         Me.dtpDate.TabIndex = 143
         Me.dtpDate.Value = New Date(2023, 7, 13, 0, 0, 0, 0)
         '
-        'lblDay
+        'mnu
         '
-        Me.lblDay.BackColor = System.Drawing.Color.White
-        Me.lblDay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblDay.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDay.Location = New System.Drawing.Point(294, 7)
-        Me.lblDay.Name = "lblDay"
-        Me.lblDay.Size = New System.Drawing.Size(33, 20)
-        Me.lblDay.TabIndex = 241
-        Me.lblDay.Text = "Lun"
-        Me.lblDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.mnu.Location = New System.Drawing.Point(-1, -2)
+        Me.mnu.Name = "mnu"
+        Me.mnu.Size = New System.Drawing.Size(135, 619)
+        Me.mnu.TabIndex = 1
         '
         'frmExpenses
         '
@@ -600,6 +636,8 @@ Partial Class frmExpenses
         Me.panMenu.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
         Me.panOreLavoro.ResumeLayout(False)
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
@@ -654,4 +692,7 @@ Partial Class frmExpenses
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents lblDay As Label
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents lblRiporti As Label
+    Friend WithEvents txtRiporti As TextBox
 End Class
