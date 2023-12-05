@@ -1,4 +1,6 @@
-﻿Imports Core
+﻿Imports System.Globalization
+Imports System.Threading
+Imports Core
 
 Public Class frmWorkingDiary
 
@@ -11,6 +13,8 @@ Public Class frmWorkingDiary
     Private CheckInputData As Core.CheckInputData
 
     Private dtpDateChanging As Boolean = False
+
+    Private dgvSelecting As Boolean = False
 
     Private orders As New List(Of String)
 
@@ -195,6 +199,9 @@ Public Class frmWorkingDiary
     End Sub
 
     Private Sub dtpDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpDate.ValueChanged
+
+        If dgvSelecting Then Return
+
         If DateDiff(DateInterval.Month, LastDateShown, dtpDate.Value) <> 0 Then
             LastDateShown = dtpDate.Value
             LoadData()
@@ -217,15 +224,18 @@ Public Class frmWorkingDiary
     Private Sub dgvOreLavoro_SelectionChanged(sender As Object, e As EventArgs) Handles dgvOreLavoro.SelectionChanged
 
         If dtpDateChanging Then Return
+        dgvSelecting = True
 
         If dgvOreLavoro.SelectedRows.Count > 0 Then
-            dtpDate.Value = CDate(dtpDate.Value.Year.ToString + "-" + dtpDate.Value.Month.ToString + "-" + dgvOreLavoro.SelectedRows(0).Cells("Giorno").Value.ToString)
             txtOreLavoro.Text = dgvOreLavoro.SelectedRows(0).Cells("OreLavoro").Value
             txtOreViaggio.Text = dgvOreLavoro.SelectedRows(0).Cells("OreViaggio").Value
             cboOrderName.Text = dgvOreLavoro.SelectedRows(0).Cells("Commessa").Value
             cboActivity.Text = dgvOreLavoro.SelectedRows(0).Cells("Attività").Value
             cboSector.Text = dgvOreLavoro.SelectedRows(0).Cells("Settore").Value
+            dtpDate.Value = CDate(dtpDate.Value.Year.ToString + "-" + dtpDate.Value.Month.ToString + "-" + dgvOreLavoro.SelectedRows(0).Cells("Giorno").Value.ToString)
         End If
+
+        dgvSelecting = False
 
     End Sub
 
@@ -406,19 +416,36 @@ Public Class frmWorkingDiary
 
     Private Sub UpdateDayName()
 
-        lblDay.Text = dtpDate.Value.DayOfWeek.ToString
-        lblDay.Text = lblDay.Text.Remove(3)
+        'lblDay.Text = dtpDate.Value.DayOfWeek.ToString
+        'lblDay.Text = lblDay.Text.Remove(3)
+
+        Dim dateNow = dtpDate.Value    'DateTime.Now
+        Dim dfi = DateTimeFormatInfo.CurrentInfo
+        Dim calendar = dfi.Calendar
+
+
+        Dim weekOfyear = calendar.GetWeekOfYear(dateNow, dfi.CalendarWeekRule, DayOfWeek.Monday)
+
+        Dim OSlanguage As String = Thread.CurrentThread.CurrentCulture.Name
+
+        Select Case OSlanguage
+            Case "en-GB"
+                lblWY.Text = "Week " & weekOfyear.ToString
+            Case "it-IT"
+                lblWY.Text = "Sett " & weekOfyear.ToString
+        End Select
+
 
         Select Case dtpDate.Value.DayOfWeek
 
             Case DayOfWeek.Sunday
-                lblDay.ForeColor = Color.Red
+                lblData.BackColor = Color.Red
 
             Case DayOfWeek.Saturday
-                lblDay.ForeColor = Color.DarkOrange
+                lblData.BackColor = Color.DarkOrange
 
             Case Else
-                lblDay.ForeColor = Color.Black
+                lblData.BackColor = Color.Transparent
 
         End Select
 

@@ -22,12 +22,13 @@ Partial Class frmExpenses
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmExpenses))
         Me.panMenu = New System.Windows.Forms.Panel()
+        Me.mnu = New OreLavoroDipendenti.ucMenu()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
@@ -35,7 +36,6 @@ Partial Class frmExpenses
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.lblRiporti = New System.Windows.Forms.Label()
         Me.txtRiporti = New System.Windows.Forms.TextBox()
-        Me.lblDay = New System.Windows.Forms.Label()
         Me.lblEmployeeName = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.dgv = New System.Windows.Forms.DataGridView()
@@ -72,7 +72,7 @@ Partial Class frmExpenses
         Me.plsNext = New System.Windows.Forms.Button()
         Me.lblData = New System.Windows.Forms.Label()
         Me.dtpDate = New System.Windows.Forms.DateTimePicker()
-        Me.mnu = New OreLavoroDipendenti.ucMenu()
+        Me.lblWY = New System.Windows.Forms.Label()
         Me.panMenu.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.panOreLavoro.SuspendLayout()
@@ -91,6 +91,13 @@ Partial Class frmExpenses
         Me.panMenu.Name = "panMenu"
         Me.panMenu.Size = New System.Drawing.Size(136, 620)
         Me.panMenu.TabIndex = 146
+        '
+        'mnu
+        '
+        Me.mnu.Location = New System.Drawing.Point(-1, -2)
+        Me.mnu.Name = "mnu"
+        Me.mnu.Size = New System.Drawing.Size(135, 619)
+        Me.mnu.TabIndex = 1
         '
         'Label24
         '
@@ -130,8 +137,8 @@ Partial Class frmExpenses
         'panOreLavoro
         '
         Me.panOreLavoro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.panOreLavoro.Controls.Add(Me.lblWY)
         Me.panOreLavoro.Controls.Add(Me.GroupBox4)
-        Me.panOreLavoro.Controls.Add(Me.lblDay)
         Me.panOreLavoro.Controls.Add(Me.lblEmployeeName)
         Me.panOreLavoro.Controls.Add(Me.Label15)
         Me.panOreLavoro.Controls.Add(Me.dgv)
@@ -146,7 +153,7 @@ Partial Class frmExpenses
         Me.panOreLavoro.Controls.Add(Me.dtpDate)
         Me.panOreLavoro.Location = New System.Drawing.Point(146, 3)
         Me.panOreLavoro.Name = "panOreLavoro"
-        Me.panOreLavoro.Size = New System.Drawing.Size(877, 620)
+        Me.panOreLavoro.Size = New System.Drawing.Size(895, 620)
         Me.panOreLavoro.TabIndex = 150
         '
         'GroupBox4
@@ -180,18 +187,6 @@ Partial Class frmExpenses
         Me.txtRiporti.TabIndex = 238
         Me.txtRiporti.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'lblDay
-        '
-        Me.lblDay.BackColor = System.Drawing.Color.White
-        Me.lblDay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblDay.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDay.Location = New System.Drawing.Point(294, 7)
-        Me.lblDay.Name = "lblDay"
-        Me.lblDay.Size = New System.Drawing.Size(33, 20)
-        Me.lblDay.TabIndex = 241
-        Me.lblDay.Text = "Lun"
-        Me.lblDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'lblEmployeeName
         '
         Me.lblEmployeeName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
@@ -219,35 +214,35 @@ Partial Class frmExpenses
         Me.dgv.AllowUserToAddRows = False
         Me.dgv.AllowUserToDeleteRows = False
         Me.dgv.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Lavender
-        Me.dgv.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.Lavender
+        Me.dgv.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv.DefaultCellStyle = DataGridViewCellStyle11
         Me.dgv.Location = New System.Drawing.Point(5, 143)
         Me.dgv.Name = "dgv"
         Me.dgv.ReadOnly = True
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
         Me.dgv.RowTemplate.Height = 16
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgv.Size = New System.Drawing.Size(859, 470)
@@ -557,7 +552,7 @@ Partial Class frmExpenses
         '
         Me.plsFilter.Image = CType(resources.GetObject("plsFilter.Image"), System.Drawing.Image)
         Me.plsFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.plsFilter.Location = New System.Drawing.Point(847, 4)
+        Me.plsFilter.Location = New System.Drawing.Point(864, 4)
         Me.plsFilter.Name = "plsFilter"
         Me.plsFilter.Size = New System.Drawing.Size(25, 26)
         Me.plsFilter.TabIndex = 222
@@ -567,7 +562,7 @@ Partial Class frmExpenses
         '
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(563, 7)
+        Me.Label1.Location = New System.Drawing.Point(580, 7)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(60, 20)
         Me.Label1.TabIndex = 221
@@ -578,7 +573,7 @@ Partial Class frmExpenses
         '
         Me.cboOrderName.BackColor = System.Drawing.SystemColors.Window
         Me.cboOrderName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboOrderName.Location = New System.Drawing.Point(623, 7)
+        Me.cboOrderName.Location = New System.Drawing.Point(640, 7)
         Me.cboOrderName.Name = "cboOrderName"
         Me.cboOrderName.Size = New System.Drawing.Size(220, 21)
         Me.cboOrderName.TabIndex = 220
@@ -587,7 +582,7 @@ Partial Class frmExpenses
         '
         Me.plsNext.Image = CType(resources.GetObject("plsNext.Image"), System.Drawing.Image)
         Me.plsNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.plsNext.Location = New System.Drawing.Point(533, 4)
+        Me.plsNext.Location = New System.Drawing.Point(496, 4)
         Me.plsNext.Name = "plsNext"
         Me.plsNext.Size = New System.Drawing.Size(25, 26)
         Me.plsNext.TabIndex = 218
@@ -606,24 +601,28 @@ Partial Class frmExpenses
         '
         'dtpDate
         '
-        Me.dtpDate.Location = New System.Drawing.Point(328, 7)
+        Me.dtpDate.Location = New System.Drawing.Point(293, 7)
         Me.dtpDate.Name = "dtpDate"
         Me.dtpDate.Size = New System.Drawing.Size(203, 20)
         Me.dtpDate.TabIndex = 143
         Me.dtpDate.Value = New Date(2023, 7, 13, 0, 0, 0, 0)
         '
-        'mnu
+        'lblWY
         '
-        Me.mnu.Location = New System.Drawing.Point(-1, -2)
-        Me.mnu.Name = "mnu"
-        Me.mnu.Size = New System.Drawing.Size(135, 619)
-        Me.mnu.TabIndex = 1
+        Me.lblWY.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblWY.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWY.Location = New System.Drawing.Point(522, 7)
+        Me.lblWY.Name = "lblWY"
+        Me.lblWY.Size = New System.Drawing.Size(56, 20)
+        Me.lblWY.TabIndex = 246
+        Me.lblWY.Text = "Week 52"
+        Me.lblWY.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'frmExpenses
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1026, 633)
+        Me.ClientSize = New System.Drawing.Size(1044, 633)
         Me.Controls.Add(Me.panOreLavoro)
         Me.Controls.Add(Me.panMenu)
         Me.Controls.Add(Me.Panel4)
@@ -691,8 +690,8 @@ Partial Class frmExpenses
     Friend WithEvents Label11 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents lblDay As Label
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents lblRiporti As Label
     Friend WithEvents txtRiporti As TextBox
+    Friend WithEvents lblWY As Label
 End Class

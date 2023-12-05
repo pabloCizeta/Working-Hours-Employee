@@ -1,4 +1,6 @@
-﻿Imports Core
+﻿Imports System.Globalization
+Imports System.Threading
+Imports Core
 
 Public Class frmExpenses
 
@@ -6,6 +8,8 @@ Public Class frmExpenses
 
     Private dtpDateChanging As Boolean = False
     Private LastDateShown As Date = Now
+
+    Private dgvSelecting As Boolean = False
 
     Private IsLoading As Boolean = False
 
@@ -149,6 +153,9 @@ Public Class frmExpenses
     End Sub
 
     Private Sub dtpDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpDate.ValueChanged
+
+        If dgvSelecting Then Return
+
         If DateDiff(DateInterval.Month, LastDateShown, dtpDate.Value) <> 0 Then
             LastDateShown = dtpDate.Value
             LoadData()
@@ -170,9 +177,10 @@ Public Class frmExpenses
     Private Sub dgv_SelectionChanged(sender As Object, e As EventArgs) Handles dgv.SelectionChanged
 
         If dtpDateChanging Then Return
+        dgvSelecting = True
 
         If dgv.SelectedRows.Count > 0 Then
-            dtpDate.Value = CDate(dtpDate.Value.Year.ToString + "-" + dtpDate.Value.Month.ToString + "-" + dgv.SelectedRows(0).Cells("Giorno").Value.ToString)
+
             cboOrderName.Text = dgv.SelectedRows(0).Cells("Commessa").Value
             txtCity.Text = dgv.SelectedRows(0).Cells("Località").Value
             txtKm.Text = dgv.SelectedRows(0).Cells("Km").Value
@@ -184,6 +192,7 @@ Public Class frmExpenses
 
             txtCartaCredito.Text = dgv.SelectedRows(0).Cells("Carta").Value
             txtValuta.Text = dgv.SelectedRows(0).Cells("Valuta").Value
+            dtpDate.Value = CDate(dtpDate.Value.Year.ToString + "-" + dtpDate.Value.Month.ToString + "-" + dgv.SelectedRows(0).Cells("Giorno").Value.ToString)
 
             Select Case dgv.SelectedRows(0).Cells("Trasferta").Value
                 Case Diario.enummTipoTrasferta.Italia.ToString
@@ -208,6 +217,8 @@ Public Class frmExpenses
                     chkHotel.Checked = False
             End Select
         End If
+
+        dgvSelecting = False
 
     End Sub
 
@@ -460,19 +471,35 @@ Public Class frmExpenses
 
     Private Sub UpdateDayName()
 
-        lblDay.Text = dtpDate.Value.DayOfWeek.ToString
-        lblDay.Text = lblDay.Text.Remove(3)
+        'lblDay.Text = dtpDate.Value.DayOfWeek.ToString
+        'lblDay.Text = lblDay.Text.Remove(3)
+
+        Dim dateNow = dtpDate.Value    'DateTime.Now
+        Dim dfi = DateTimeFormatInfo.CurrentInfo
+        Dim calendar = dfi.Calendar
+
+
+        Dim weekOfyear = calendar.GetWeekOfYear(dateNow, dfi.CalendarWeekRule, DayOfWeek.Monday)
+
+        Dim OSlanguage As String = Thread.CurrentThread.CurrentCulture.Name
+
+        Select Case OSlanguage
+            Case "en-GB"
+                lblWY.Text = "Week " & weekOfyear.ToString
+            Case "it-IT"
+                lblWY.Text = "Sett " & weekOfyear.ToString
+        End Select
 
         Select Case dtpDate.Value.DayOfWeek
 
             Case DayOfWeek.Sunday
-                lblDay.ForeColor = Color.Red
+                lblData.BackColor = Color.Red
 
             Case DayOfWeek.Saturday
-                lblDay.ForeColor = Color.DarkOrange
+                lblData.BackColor = Color.DarkOrange
 
             Case Else
-                lblDay.ForeColor = Color.Black
+                lblData.BackColor = Color.Transparent
 
         End Select
 

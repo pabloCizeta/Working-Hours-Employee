@@ -35,7 +35,6 @@ Partial Class frmWorkingDiary
         Me.Label8 = New System.Windows.Forms.Label()
         Me.lblTotaleOre = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.lblDay = New System.Windows.Forms.Label()
         Me.lblEmployeeName = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.lblTotaleOreStraordinario = New System.Windows.Forms.Label()
@@ -63,6 +62,7 @@ Partial Class frmWorkingDiary
         Me.dgvOreLavoro = New System.Windows.Forms.DataGridView()
         Me.panMenu = New System.Windows.Forms.Panel()
         Me.mnu = New OreLavoroDipendenti.ucMenu()
+        Me.lblWY = New System.Windows.Forms.Label()
         Me.panOreLavoro.SuspendLayout()
         CType(Me.dgvOreLavoro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panMenu.SuspendLayout()
@@ -71,12 +71,12 @@ Partial Class frmWorkingDiary
         'panOreLavoro
         '
         Me.panOreLavoro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.panOreLavoro.Controls.Add(Me.lblWY)
         Me.panOreLavoro.Controls.Add(Me.lblInfo)
         Me.panOreLavoro.Controls.Add(Me.Label10)
         Me.panOreLavoro.Controls.Add(Me.Label8)
         Me.panOreLavoro.Controls.Add(Me.lblTotaleOre)
         Me.panOreLavoro.Controls.Add(Me.Label9)
-        Me.panOreLavoro.Controls.Add(Me.lblDay)
         Me.panOreLavoro.Controls.Add(Me.lblEmployeeName)
         Me.panOreLavoro.Controls.Add(Me.Label15)
         Me.panOreLavoro.Controls.Add(Me.lblTotaleOreStraordinario)
@@ -172,18 +172,6 @@ Partial Class frmWorkingDiary
         Me.Label9.TabIndex = 240
         Me.Label9.Text = "Totale ore"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lblDay
-        '
-        Me.lblDay.BackColor = System.Drawing.Color.White
-        Me.lblDay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblDay.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDay.Location = New System.Drawing.Point(46, 39)
-        Me.lblDay.Name = "lblDay"
-        Me.lblDay.Size = New System.Drawing.Size(33, 20)
-        Me.lblDay.TabIndex = 239
-        Me.lblDay.Text = "Lun"
-        Me.lblDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblEmployeeName
         '
@@ -287,7 +275,7 @@ Partial Class frmWorkingDiary
         '
         Me.plsNext.Image = CType(resources.GetObject("plsNext.Image"), System.Drawing.Image)
         Me.plsNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.plsNext.Location = New System.Drawing.Point(288, 36)
+        Me.plsNext.Location = New System.Drawing.Point(253, 36)
         Me.plsNext.Name = "plsNext"
         Me.plsNext.Size = New System.Drawing.Size(25, 26)
         Me.plsNext.TabIndex = 218
@@ -424,7 +412,7 @@ Partial Class frmWorkingDiary
         '
         'dtpDate
         '
-        Me.dtpDate.Location = New System.Drawing.Point(80, 39)
+        Me.dtpDate.Location = New System.Drawing.Point(47, 39)
         Me.dtpDate.Name = "dtpDate"
         Me.dtpDate.Size = New System.Drawing.Size(203, 20)
         Me.dtpDate.TabIndex = 143
@@ -485,6 +473,17 @@ Partial Class frmWorkingDiary
         Me.mnu.Size = New System.Drawing.Size(135, 636)
         Me.mnu.TabIndex = 0
         '
+        'lblWY
+        '
+        Me.lblWY.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblWY.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWY.Location = New System.Drawing.Point(282, 40)
+        Me.lblWY.Name = "lblWY"
+        Me.lblWY.Size = New System.Drawing.Size(56, 20)
+        Me.lblWY.TabIndex = 245
+        Me.lblWY.Text = "Week 52"
+        Me.lblWY.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'frmWorkingDiary
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -533,11 +532,11 @@ Partial Class frmWorkingDiary
     Friend WithEvents panMenu As Panel
     Friend WithEvents mnu As ucMenu
     Friend WithEvents lblEmployeeName As Label
-    Friend WithEvents lblDay As Label
     Friend WithEvents lblTotaleOre As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents Label8 As Label
     Friend WithEvents lblInfo As Label
+    Friend WithEvents lblWY As Label
 End Class
