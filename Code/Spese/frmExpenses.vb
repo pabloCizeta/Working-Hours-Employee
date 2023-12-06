@@ -488,6 +488,8 @@ Public Class frmExpenses
                 lblWY.Text = "Week " & weekOfyear.ToString
             Case "it-IT"
                 lblWY.Text = "Sett " & weekOfyear.ToString
+            Case Else
+                lblWY.Text = "Sett " & weekOfyear.ToString
         End Select
 
         Select Case dtpDate.Value.DayOfWeek
