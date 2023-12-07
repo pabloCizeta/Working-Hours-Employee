@@ -518,7 +518,7 @@ Public Class frmExpenses
         If data.Data.MoneyAttuali.Count > 0 Then
             txtRiporti.Text = data.Data.MoneyAttuali(0).Riporti
         Else
-            txtRiporti.Text = 0
+            txtRiporti.Text = "Errore File"
         End If
 
 
