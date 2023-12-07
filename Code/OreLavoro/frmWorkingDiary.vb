@@ -48,11 +48,12 @@ Public Class frmWorkingDiary
     End Sub
     Private Sub LoadOrdersComboBox(Filter As String, ShowValue As Boolean)
         cboOrderName.Items.Clear()
-        cboOrderName.Items.Add("Ferie")
-        cboOrderName.Items.Add("Mutua")
+        cboOrderName.Items.Add("FERIE")
+        cboOrderName.Items.Add("MUTUA")
         cboOrderName.Items.Add(cOrderSeparator)
 
         orders = xDiario.GetOrderList(Filter)
+        orders.Sort()
         For Each str As String In orders
             cboOrderName.Items.Add(str)
         Next

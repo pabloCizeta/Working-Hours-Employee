@@ -50,6 +50,7 @@ Public Class frmExpenses
     Private Sub LoadOrdersComboBox(Filter As String, ShowValue As Boolean)
         Dim orders As New List(Of String)
         orders = xDiario.GetOrderList(Filter)
+        orders.Sort()
         For Each str As String In orders
             cboOrderName.Items.Add(str)
         Next
