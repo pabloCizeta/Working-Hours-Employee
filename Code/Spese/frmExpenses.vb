@@ -172,6 +172,8 @@ Public Class frmExpenses
         Next
         dtpDateChanging = False
 
+        dgv_SelectionChanged(sender, e)
+
         UpdateDayName()
     End Sub
 
