@@ -238,6 +238,8 @@ Public Class frmWorkingDiary
 
         dgvSelecting = False
 
+        UpdateDayName()
+
     End Sub
 
     Private Sub Write()

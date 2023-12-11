@@ -223,6 +223,8 @@ Public Class frmExpenses
 
         dgvSelecting = False
 
+        UpdateDayName()
+
     End Sub
 
     Private Sub chkItaly_CheckedChanged(sender As Object, e As EventArgs) Handles chkItaly.CheckedChanged
