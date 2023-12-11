@@ -181,7 +181,7 @@ Public Class PrintToPDF
             table.AddCell(GetCell("Commessa ", ArialBold, Element.ALIGN_LEFT))
             table.AddCell(GetCell("Attività ", ArialBold, Element.ALIGN_LEFT))
             table.AddCell(GetCell("Settore ", ArialBold, Element.ALIGN_LEFT))
-            table.AddCell(GetCell("Commessa ", ArialBold, Element.ALIGN_CENTER))
+            'table.AddCell(GetCell("Commessa ", ArialBold, Element.ALIGN_CENTER))
             table.AddCell(GetCell("OreLavoro ", ArialBold, Element.ALIGN_CENTER))
             table.AddCell(GetCell("OreViaggio ", ArialBold, Element.ALIGN_CENTER))
             Doc.Add(table)

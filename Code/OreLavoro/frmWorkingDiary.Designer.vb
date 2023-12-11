@@ -29,6 +29,8 @@ Partial Class frmWorkingDiary
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.panOreLavoro = New System.Windows.Forms.Panel()
+        Me.plsPrevious = New System.Windows.Forms.Button()
+        Me.lblWY = New System.Windows.Forms.Label()
         Me.lblInfo = New System.Windows.Forms.Label()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Label10 = New System.Windows.Forms.Label()
@@ -62,7 +64,6 @@ Partial Class frmWorkingDiary
         Me.dgvOreLavoro = New System.Windows.Forms.DataGridView()
         Me.panMenu = New System.Windows.Forms.Panel()
         Me.mnu = New OreLavoroDipendenti.ucMenu()
-        Me.lblWY = New System.Windows.Forms.Label()
         Me.panOreLavoro.SuspendLayout()
         CType(Me.dgvOreLavoro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panMenu.SuspendLayout()
@@ -71,6 +72,7 @@ Partial Class frmWorkingDiary
         'panOreLavoro
         '
         Me.panOreLavoro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.panOreLavoro.Controls.Add(Me.plsPrevious)
         Me.panOreLavoro.Controls.Add(Me.lblWY)
         Me.panOreLavoro.Controls.Add(Me.lblInfo)
         Me.panOreLavoro.Controls.Add(Me.Label10)
@@ -107,9 +109,32 @@ Partial Class frmWorkingDiary
         Me.panOreLavoro.Size = New System.Drawing.Size(673, 635)
         Me.panOreLavoro.TabIndex = 144
         '
+        'plsPrevious
+        '
+        Me.plsPrevious.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.plsPrevious.Image = CType(resources.GetObject("plsPrevious.Image"), System.Drawing.Image)
+        Me.plsPrevious.Location = New System.Drawing.Point(226, 36)
+        Me.plsPrevious.Name = "plsPrevious"
+        Me.plsPrevious.Size = New System.Drawing.Size(25, 26)
+        Me.plsPrevious.TabIndex = 248
+        Me.plsPrevious.TabStop = False
+        Me.plsPrevious.UseVisualStyleBackColor = True
+        '
+        'lblWY
+        '
+        Me.lblWY.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblWY.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWY.Location = New System.Drawing.Point(282, 40)
+        Me.lblWY.Name = "lblWY"
+        Me.lblWY.Size = New System.Drawing.Size(56, 20)
+        Me.lblWY.TabIndex = 245
+        Me.lblWY.Text = "Week 52"
+        Me.lblWY.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'lblInfo
         '
         Me.lblInfo.BackColor = System.Drawing.Color.Transparent
+        Me.lblInfo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblInfo.ImageKey = "Info.ico"
         Me.lblInfo.ImageList = Me.ImageList1
@@ -263,22 +288,25 @@ Partial Class frmWorkingDiary
         '
         'plsFilter
         '
+        Me.plsFilter.Cursor = System.Windows.Forms.Cursors.Hand
         Me.plsFilter.Image = CType(resources.GetObject("plsFilter.Image"), System.Drawing.Image)
         Me.plsFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.plsFilter.Location = New System.Drawing.Point(642, 13)
         Me.plsFilter.Name = "plsFilter"
         Me.plsFilter.Size = New System.Drawing.Size(25, 26)
         Me.plsFilter.TabIndex = 219
+        Me.plsFilter.TabStop = False
         Me.plsFilter.UseVisualStyleBackColor = True
         '
         'plsNext
         '
+        Me.plsNext.Cursor = System.Windows.Forms.Cursors.Hand
         Me.plsNext.Image = CType(resources.GetObject("plsNext.Image"), System.Drawing.Image)
-        Me.plsNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.plsNext.Location = New System.Drawing.Point(253, 36)
         Me.plsNext.Name = "plsNext"
         Me.plsNext.Size = New System.Drawing.Size(25, 26)
         Me.plsNext.TabIndex = 218
+        Me.plsNext.TabStop = False
         Me.plsNext.UseVisualStyleBackColor = True
         '
         'Label7
@@ -299,7 +327,7 @@ Partial Class frmWorkingDiary
         Me.cboSector.Location = New System.Drawing.Point(416, 67)
         Me.cboSector.Name = "cboSector"
         Me.cboSector.Size = New System.Drawing.Size(220, 21)
-        Me.cboSector.TabIndex = 216
+        Me.cboSector.TabIndex = 3
         '
         'Label6
         '
@@ -319,7 +347,7 @@ Partial Class frmWorkingDiary
         Me.cboActivity.Location = New System.Drawing.Point(416, 39)
         Me.cboActivity.Name = "cboActivity"
         Me.cboActivity.Size = New System.Drawing.Size(220, 21)
-        Me.cboActivity.TabIndex = 214
+        Me.cboActivity.TabIndex = 2
         '
         'Label5
         '
@@ -357,7 +385,7 @@ Partial Class frmWorkingDiary
         Me.txtOreViaggio.Location = New System.Drawing.Point(218, 68)
         Me.txtOreViaggio.Name = "txtOreViaggio"
         Me.txtOreViaggio.Size = New System.Drawing.Size(37, 20)
-        Me.txtOreViaggio.TabIndex = 210
+        Me.txtOreViaggio.TabIndex = 5
         Me.txtOreViaggio.Text = "00:00"
         Me.txtOreViaggio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -366,7 +394,7 @@ Partial Class frmWorkingDiary
         Me.txtOreLavoro.Location = New System.Drawing.Point(67, 67)
         Me.txtOreLavoro.Name = "txtOreLavoro"
         Me.txtOreLavoro.Size = New System.Drawing.Size(37, 20)
-        Me.txtOreLavoro.TabIndex = 209
+        Me.txtOreLavoro.TabIndex = 4
         Me.txtOreLavoro.Text = "00:00"
         Me.txtOreLavoro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -395,9 +423,10 @@ Partial Class frmWorkingDiary
         'cboOrderName
         '
         Me.cboOrderName.Location = New System.Drawing.Point(416, 13)
+        Me.cboOrderName.MaxLength = 32
         Me.cboOrderName.Name = "cboOrderName"
         Me.cboOrderName.Size = New System.Drawing.Size(220, 21)
-        Me.cboOrderName.TabIndex = 206
+        Me.cboOrderName.TabIndex = 1
         '
         'lblData
         '
@@ -414,8 +443,8 @@ Partial Class frmWorkingDiary
         '
         Me.dtpDate.Location = New System.Drawing.Point(47, 39)
         Me.dtpDate.Name = "dtpDate"
-        Me.dtpDate.Size = New System.Drawing.Size(203, 20)
-        Me.dtpDate.TabIndex = 143
+        Me.dtpDate.Size = New System.Drawing.Size(177, 20)
+        Me.dtpDate.TabIndex = 0
         Me.dtpDate.Value = New Date(2023, 5, 24, 0, 0, 0, 0)
         '
         'dgvOreLavoro
@@ -455,7 +484,7 @@ Partial Class frmWorkingDiary
         Me.dgvOreLavoro.RowTemplate.Height = 16
         Me.dgvOreLavoro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvOreLavoro.Size = New System.Drawing.Size(664, 506)
-        Me.dgvOreLavoro.TabIndex = 142
+        Me.dgvOreLavoro.TabIndex = 6
         '
         'panMenu
         '
@@ -472,17 +501,6 @@ Partial Class frmWorkingDiary
         Me.mnu.Name = "mnu"
         Me.mnu.Size = New System.Drawing.Size(135, 636)
         Me.mnu.TabIndex = 0
-        '
-        'lblWY
-        '
-        Me.lblWY.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblWY.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWY.Location = New System.Drawing.Point(282, 40)
-        Me.lblWY.Name = "lblWY"
-        Me.lblWY.Size = New System.Drawing.Size(56, 20)
-        Me.lblWY.TabIndex = 245
-        Me.lblWY.Text = "Week 52"
-        Me.lblWY.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'frmWorkingDiary
         '
@@ -539,4 +557,5 @@ Partial Class frmWorkingDiary
     Friend WithEvents Label8 As Label
     Friend WithEvents lblInfo As Label
     Friend WithEvents lblWY As Label
+    Friend WithEvents plsPrevious As Button
 End Class

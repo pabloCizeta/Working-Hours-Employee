@@ -187,6 +187,11 @@ Public Class frmWorkingDiary
         dtpDate.Value = DateAdd("d", 1, dtpDate.Value)
         dtpDateChanging = False
     End Sub
+    Private Sub plsPrevious_Click(sender As Object, e As EventArgs) Handles plsPrevious.Click
+        dtpDateChanging = True
+        dtpDate.Value = DateAdd("d", -1, dtpDate.Value)
+        dtpDateChanging = False
+    End Sub
 
     Private Sub plsFilter_Click(sender As Object, e As EventArgs) Handles plsFilter.Click
         mnu.SuspendMenu()

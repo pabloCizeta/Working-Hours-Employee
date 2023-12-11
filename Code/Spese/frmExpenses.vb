@@ -15,6 +15,8 @@ Public Class frmExpenses
 
     Private CostoKm As Single = 0
 
+    Private LastOrderSelected As String = ""
+
 
     Private Sub frmExpenses_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpDate.Value = New Date(DateTime.Now.Year, DateTime.Now.Month, 1)
@@ -142,6 +144,12 @@ Public Class frmExpenses
         dtpDateChanging = False
     End Sub
 
+    Private Sub plsPrevious_Click(sender As Object, e As EventArgs) Handles plsPrevious.Click
+        dtpDateChanging = True
+        dtpDate.Value = DateAdd("d", -1, dtpDate.Value)
+        dtpDateChanging = False
+    End Sub
+
     Private Sub plsFilter_Click(sender As Object, e As EventArgs) Handles plsFilter.Click
         mnu.SuspendMenu()
         Using dlg As New frmFilter
@@ -172,7 +180,7 @@ Public Class frmExpenses
         Next
         dtpDateChanging = False
 
-        dgv_SelectionChanged(sender, e)
+        'dgv_SelectionChanged(sender, e)
 
         UpdateDayName()
     End Sub
@@ -185,41 +193,48 @@ Public Class frmExpenses
         If dgv.SelectedRows.Count > 0 Then
 
             cboOrderName.Text = dgv.SelectedRows(0).Cells("Commessa").Value
+
             txtCity.Text = dgv.SelectedRows(0).Cells("Località").Value
-            txtKm.Text = dgv.SelectedRows(0).Cells("Km").Value
-            txtAutostrada.Text = dgv.SelectedRows(0).Cells("Autostrada").Value
-            txtMezziPubblici.Text = dgv.SelectedRows(0).Cells("Mezzi").Value
-            txtVitto.Text = dgv.SelectedRows(0).Cells("Vitto").Value
-            txtAlloggio.Text = dgv.SelectedRows(0).Cells("Alloggio").Value
-            txtVarie.Text = dgv.SelectedRows(0).Cells("Varie").Value
+                txtKm.Text = dgv.SelectedRows(0).Cells("Km").Value
+                txtAutostrada.Text = dgv.SelectedRows(0).Cells("Autostrada").Value
+                txtMezziPubblici.Text = dgv.SelectedRows(0).Cells("Mezzi").Value
+                txtVitto.Text = dgv.SelectedRows(0).Cells("Vitto").Value
+                txtAlloggio.Text = dgv.SelectedRows(0).Cells("Alloggio").Value
+                txtVarie.Text = dgv.SelectedRows(0).Cells("Varie").Value
 
-            txtCartaCredito.Text = dgv.SelectedRows(0).Cells("Carta").Value
-            txtValuta.Text = dgv.SelectedRows(0).Cells("Valuta").Value
-            dtpDate.Value = CDate(dtpDate.Value.Year.ToString + "-" + dtpDate.Value.Month.ToString + "-" + dgv.SelectedRows(0).Cells("Giorno").Value.ToString)
+                txtCartaCredito.Text = dgv.SelectedRows(0).Cells("Carta").Value
+                txtValuta.Text = dgv.SelectedRows(0).Cells("Valuta").Value
+                dtpDate.Value = CDate(dtpDate.Value.Year.ToString + "-" + dtpDate.Value.Month.ToString + "-" + dgv.SelectedRows(0).Cells("Giorno").Value.ToString)
 
-            Select Case dgv.SelectedRows(0).Cells("Trasferta").Value
-                Case Diario.enummTipoTrasferta.Italia.ToString
-                    chkItaly.Checked = True
-                    chkEstero.Checked = False
-                    chkHotel.Checked = False
-                Case Diario.enummTipoTrasferta.ItaliaHotel.ToString
-                    chkItaly.Checked = True
-                    chkEstero.Checked = False
-                    chkHotel.Checked = True
-                Case Diario.enummTipoTrasferta.Estero.ToString
-                    chkItaly.Checked = False
-                    chkEstero.Checked = True
-                    chkHotel.Checked = False
-                Case Diario.enummTipoTrasferta.EsteroLunga.ToString
-                    chkItaly.Checked = False
-                    chkEstero.Checked = True
-                    chkHotel.Checked = False
-                Case Else
-                    chkItaly.Checked = True
-                    chkEstero.Checked = False
-                    chkHotel.Checked = False
-            End Select
+                Select Case dgv.SelectedRows(0).Cells("Trasferta").Value
+                    Case Diario.enummTipoTrasferta.Italia.ToString
+                        chkItaly.Checked = True
+                        chkEstero.Checked = False
+                        chkHotel.Checked = False
+                    Case Diario.enummTipoTrasferta.ItaliaHotel.ToString
+                        chkItaly.Checked = True
+                        chkEstero.Checked = False
+                        chkHotel.Checked = True
+                    Case Diario.enummTipoTrasferta.Estero.ToString
+                        chkItaly.Checked = False
+                        chkEstero.Checked = True
+                        chkHotel.Checked = False
+                    Case Diario.enummTipoTrasferta.EsteroLunga.ToString
+                        chkItaly.Checked = False
+                        chkEstero.Checked = True
+                        chkHotel.Checked = False
+                    Case Else
+                        chkItaly.Checked = True
+                        chkEstero.Checked = False
+                        chkHotel.Checked = False
+                End Select
+
+
+
+                LastOrderSelected = dgv.SelectedRows(0).Cells("Commessa").Value
         End If
+
+
 
         dgvSelecting = False
 
@@ -356,7 +371,7 @@ Public Class frmExpenses
             Next
         End If
 
-        dtpDate.Value = dtpDate.Value.AddDays(1)
+        'dtpDate.Value = dtpDate.Value.AddDays(1)
     End Sub
 
     Private Sub Delete()
